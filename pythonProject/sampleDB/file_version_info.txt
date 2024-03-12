@@ -1,0 +1,50 @@
+# UTF-8
+#
+VSVersionInfo(
+  ffi=FixedFileInfo(
+
+# filevers 및 prodvers는 항상 4개 항목(1, 2, 3, 4)을 포함하는 튜플이어야 합니다.
+# 또한, 필요하지 않은 항목이라면 0으로 설정하면 된다.
+filevers=(5, 4, 1, 1),
+prodvers=(5, 4, 1, 1),
+
+# 유효한 비트 'flags'r을 지정하는 비트마스크가 포함되어 있습니다.
+mask=0x3f,
+
+# 파일의 부울 특성을 지정하는 비트마스크를 포함합니다.
+flags=0x0,
+
+# 이 파일이 설계된 운영 체제입니다.
+# 0x4 - NT이며 변경할 필요가 없습니다.
+OS=0x4,
+
+# 일반적인 파일 유형입니다.
+# 0x1 - 파일이 애플리케이션입니다.
+fileType=0x1,
+
+# 파일의 기능.
+# 0x0 - 이 파일 유형에 대해 함수가 정의되지 않았습니다.
+subtype=0x0,
+
+# 생성 날짜 및 타임스탬프입니다.
+date=(0, 0)
+),
+  kids=[
+StringFileInfo(
+  [
+  StringTable(
+    u'040904B0',
+    [StringStruct(u'CompanyName', u'AST-GLOBAL'),
+    StringStruct(u'FileDescription', u'test'),
+    StringStruct(u'FileVersion', u'1.0.0.0'),
+    StringStruct(u'InternalName', u''),
+    StringStruct(u'LegalCopyright', u'Copyright (c) AST-GLOBAL Technical comunication solution Foundation'),
+    StringStruct(u'OriginalFilename', u''),
+    # 제품 이름 지정
+    StringStruct(u'ProductName', u'test.exe'),
+    # 제품 버전 지정
+    StringStruct(u'ProductVersion', u'1.0.0.0')])
+  ]), 
+VarFileInfo([VarStruct(u'Translation', [1033, 1200])])
+  ]
+)

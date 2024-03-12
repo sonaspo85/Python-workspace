@@ -1,0 +1,10 @@
+INFO: Platform: win32
+INFO: Version Info: v0.3.0
+DEBUG: Log Path: cp.log
+DEBUG: command: ['python', 'G:\\MS-Drive\\OneDrive - UOU\\WORK\\Workspace\\WORK\\PYTHON\\python-workspace\\pythonProject\\main3.py']
+DEBUG: file: None
+DEBUG: pause: True
+DEBUG: repl: python
+DEBUG: args: ['G:\\MS-Drive\\OneDrive - UOU\\WORK\\Workspace\\WORK\\PYTHON\\python-workspace\\pythonProject\\main3.py']
+INFO: return code: 0 (0x0)
+INFO: elapsed time: 0.116620

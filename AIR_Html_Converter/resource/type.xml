@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF8'?>
+<root filename="type">
+  <listitem type="FAC"/>
+  <listitem type="ACR"/>
+  <listitem type="RAC"/>
+  <listitem type="WAC"/>
+  <listitem type="VCN"/>
+</root>

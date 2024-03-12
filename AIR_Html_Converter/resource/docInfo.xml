@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF8'?>
+<root type="FAC" videoSwitch="off" modelNumber="123">
+  <item id="projectDir" path="G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/PYTHON/python-workspace/AIR_Html_Converter"/>
+  <item id="srcDir" path="G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/PYTHON/python-workspace/AIR_Html_Converter/srcDir/소스"/>
+  <item id="resourceDir" path="G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/PYTHON/python-workspace/AIR_Html_Converter/resource"/>
+  <item id="tempDir" path="G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/PYTHON/python-workspace/AIR_Html_Converter/srcDir/소스/temp"/>
+  <item id="xslsDir" path="G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/PYTHON/python-workspace/AIR_Html_Converter/resource/xsls"/>
+  <item id="excelTemplsDir" path="G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/PYTHON/python-workspace/AIR_Html_Converter/resource/excel-template"/>
+  <item id="langsMap" sequence="English=EN"/>
+</root>
