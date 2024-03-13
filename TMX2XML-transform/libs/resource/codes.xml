@@ -1,9 +1,10 @@
 <root>
-    <items lang="ARA">
-        <item team="Arabic_ar-SA">
-        <item team="en-GB_ar-SA">
-        <item team="ARA_ar-SA">
-        <item team="(AC)_ar-SA">
-        <item team="en-US_ar-SA">
-    </item>
+    <items lang="ARA3">
+        <item team="Arabic_ar-SA" />
+        <item team="en-GB_ar-SA" />
+        <item team="ARA_ar-SA" />
+        <item team="(AC)_ar-SA" />
+        <item team="en-US_ar-SA" />
+    </items>
+
 </root>

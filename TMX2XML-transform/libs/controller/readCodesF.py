@@ -1,3 +1,4 @@
+import re
 from ssl import SSLEOFError
 
 from setExePath import *
@@ -7,8 +8,9 @@ from lxml.etree import ElementTree, Element, SubElement
 
 class readCodeF:
 
-    def __init__(self):
-        pass
+    def __init__(self, filename):
+        self.filename = filename
+
 
     def runReadCodes(self):
         print('runReadCodes 시작')
@@ -21,8 +23,26 @@ class readCodeF:
         root = doc.getroot()
 
 
-        for child in root.iter():
-            lang = child.get('lang')
+
+        regexpNS = "http://exslt.org/regular-expressions"
+        find = et.XPath("//*[re:match(local-name(), '(item)$')]", namespaces={'re': regexpNS})
+
+        result = find(root)
+
+        for child in result:
+            team = child.get('team')
+            lang = child.getparent().get('lang')
+
+            pattern = self.filename
+            comp = re.compile(pattern)
+
+            if comp.search()
 
 
+
+
+
+        # for items in root.findall('items'):
+        #     lang = items.get('lang')
+        #     print('lang:', lang)
 

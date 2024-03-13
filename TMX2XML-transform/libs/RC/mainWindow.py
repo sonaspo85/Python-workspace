@@ -10,6 +10,7 @@ from setExePath import *
 from pathlib import Path
 from libs.controller.readTeam import readTeam
 from libs.controller.readCodesF import readCodeF
+from libs.controller.setfileNlang import setfileNlang
 
 
 class mainWindow(QMainWindow, Ui_MainWindow):
@@ -18,13 +19,16 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         # 부모 클래스의 속성에 접근
         super().__init__()
 
+        self.teamL = []
+        self.srcpath = ''
+
         # root.py 파일내 선언된 위젭 및 컨테이너에 접근
         self.setupUi(self)
         self.initUI()
         # ui 윈도우창 출력
         self.show()
 
-        self.teamL = []
+
 
     def initUI(self):
         print('initUI 시작')
@@ -50,10 +54,14 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         # team.xml 파일 읽기
         self.readTeamF()
 
-        self.read_codesF()
+        # self.read_codesF()
 
 
         self.bt2.clicked.connect(self.openDialog)
+
+
+
+
 
 
 
@@ -83,9 +91,24 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 
         try:
             # 폴더 다이얼로그
-            fname = QFileDialog.getExistingDirectory(self, '소스 폴더를 선택해 주세요.')
+            # fname = QFileDialog.getExistingDirectory(self, '소스 폴더를 선택해 주세요.')
+            fname = "H:/Workspace/Other-Dev/_Common_Tool/tmx2xml-transform/resource"
             # 입력 받은 문자열 경로를 Path 객체로 변환
-            srcpath = Path(fname).absolute().as_posix()
+            self.srcpath = Path(fname).absolute().as_posix()
+
+
+
+
+
+        except Exception as e:
+            print(traceback.format_exc())
+
+
+        try:
+            # 선택한 디렉토리 반복
+            setfilenlang = setfileNlang(self.srcpath)
+            setfilenlang.setDict()
+
 
 
         except Exception as e:
