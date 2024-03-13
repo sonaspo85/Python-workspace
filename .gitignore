@@ -4,3 +4,8 @@ build/
 srcDir/
 __pycache__/
 .vscode/
+resources/
+jre/
+*.zip
+*.idml
+
