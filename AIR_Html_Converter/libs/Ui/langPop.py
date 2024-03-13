@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'G:\MS-Drive\OneDrive - UOU\WORK\Workspace\WORK\PYTHON\python-workspace\AIR_Html_Converter\libs/Ui\langPop.ui'
+# Form implementation generated from reading ui file 'H:\Workspace\Python-workspace\AIR_Html_Converter\libs/Ui\langPop.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -91,7 +91,6 @@ class Ui_Form(object):
 
 if __name__ == "__main__":
     import sys
-
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'G:\MS-Drive\OneDrive - UOU\WORK\Workspace\WORK\PYTHON\python-workspace\AIR_Html_Converter\libs/Ui\root.ui'
+# Form implementation generated from reading ui file 'H:\Workspace\Python-workspace\AIR_Html_Converter\libs/Ui\root.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -67,7 +67,7 @@ class Ui_MainWindow(object):
         self.groupBox = QtWidgets.QGroupBox(self.wg2)
         self.groupBox.setGeometry(QtCore.QRect(231, 12, 231, 35))
         self.groupBox.setTitle("")
-        self.groupBox.setAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignHCenter)
+        self.groupBox.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignHCenter)
         self.groupBox.setFlat(False)
         self.groupBox.setCheckable(False)
         self.groupBox.setObjectName("groupBox")
@@ -138,7 +138,10 @@ class Ui_MainWindow(object):
         self.wg1.setEnabled(True)
         self.wg1.setGeometry(QtCore.QRect(9, 9, 471, 47))
         self.wg1.setAutoFillBackground(False)
-        self.wg1.setStyleSheet("#wg1 {\n" "    border: 1px solid #e63f30;\n" "}\n" "")
+        self.wg1.setStyleSheet("#wg1 {\n"
+"    border: 1px solid #e63f30;\n"
+"}\n"
+"")
         self.wg1.setObjectName("wg1")
         self.mainTitle = QtWidgets.QLabel(self.wg1)
         self.mainTitle.setGeometry(QtCore.QRect(9, 9, 453, 29))
@@ -201,7 +204,6 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     import sys
-
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
