@@ -61,7 +61,7 @@ def downloadresource():
         # resource 경로
         resourceDir = projectDir + "resource"
 
-        ftpdir = "/tcs/confidential/CE-HTML-Converter/resource"
+        ftpdir = "/tcs/confidential/Martian/resource"
 
         connectftp = connectFTP()
         connectftp.runFTP(ftpdir, resourceDir)

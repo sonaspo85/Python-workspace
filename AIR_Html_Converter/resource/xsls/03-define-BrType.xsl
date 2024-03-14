@@ -39,7 +39,7 @@
             </xsl:when>
             
             <xsl:otherwise>
-                <xsl:attribute name="{lower-case(local-name())}" select="lower-case(.)" />
+                <xsl:attribute name="{lower-case(local-name())}" select="." />
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -58,7 +58,7 @@
     
     <xsl:template match="br">
         <xsl:choose>
-            <xsl:when test="not(ancestor::*[matches(@class, '^(orderlist|unorderlist)')])">
+            <xsl:when test="not(ancestor::*[matches(@class, '^(OrderList|UnorderList)')])">
                 <xsl:choose>
                     <xsl:when test="count(parent::*/node()) = 1" />
 

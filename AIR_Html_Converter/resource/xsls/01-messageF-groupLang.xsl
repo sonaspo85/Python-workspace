@@ -11,7 +11,8 @@
     <xsl:output method="xml" encoding="UTF-8" indent="no" />
 
     <xsl:strip-space elements="*"/>
-    
+    <xsl:param name="docinfoF" />
+
     <xsl:import href="00-commonVar.xsl" />
     
     <xsl:template match="@* | node()" mode="#all">

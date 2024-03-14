@@ -23,19 +23,19 @@
 
         <xsl:variable name="tagname">
             <xsl:choose>
-                <xsl:when test="matches(@class, 'chapter')">
+                <xsl:when test="matches(@class, 'Chapter')">
                     <xsl:value-of select="'h1'" />
                 </xsl:when>
                 
-                <xsl:when test="matches(@class, 'heading1')">
+                <xsl:when test="matches(@class, 'Heading1')">
                     <xsl:value-of select="'h2'" />
                 </xsl:when>
 
-                <xsl:when test="matches(@class, 'heading2')">
+                <xsl:when test="matches(@class, 'Heading2')">
                     <xsl:value-of select="'h3'" />
                 </xsl:when>
 
-                <xsl:when test="matches(@class, 'heading3')">
+                <xsl:when test="matches(@class, 'Heading3')">
                     <xsl:value-of select="'h4'" />
                 </xsl:when>
 
@@ -63,7 +63,7 @@
                     <xsl:when test="self::img and 
                                     not(following-sibling::node()) and 
                                     not(ancestor::td) and 
-                                    not(matches($cur/@class, 'img'))">
+                                    not(matches($cur/lower-case(@class), 'img'))">
                     </xsl:when>
                 
                     <xsl:otherwise>
@@ -83,7 +83,7 @@
 
         <xsl:if test="node()[last()][name()='img'] and 
                       not(ancestor::td) and 
-                      not(matches($cur/@class, 'img'))">
+                      not(matches($cur/lower-case(@class), 'img'))">
             <xsl:copy-of select="node()[last()][name()='img']" />
         </xsl:if>
 
@@ -101,8 +101,6 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-
-    
 
 </xsl:stylesheet>
 

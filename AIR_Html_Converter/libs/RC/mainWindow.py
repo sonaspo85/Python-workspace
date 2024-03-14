@@ -32,8 +32,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.initUI()
 
+
     def initUI(self):
-        self.setWindowTitle("마션")
+        self.setWindowTitle("Martian")
         # 메인 윈도우창 리사이즈 금지
         self.setFixedSize(494, 298)
 
@@ -46,6 +47,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # 위젯 작동 시키기
         self.initialize()
+
 
     def initialize(self):
         print("initialize 시작")
@@ -91,16 +93,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.pb4.clicked.connect(self.runStart)
 
         # 추후 하기 하기 두 목록 삭제 하기
-        self.le1.setText(
-            "G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/PYTHON/python-workspace/AIR_Html_Converter/srcDir"
-        )
+
+        self.le1.setText("H:/Workspace/Python-workspace/AIR_Html_Converter/srcDir")
         self.rb2.setChecked(True)
+
 
     def on_context_menu(self, point):
         print("on_context_menu 시작")
 
         # show context menu
         self.menu.exec_(self.pb2.mapToGlobal(point))
+
 
     def ftpUpload(self):
         print("ftpUpload 시작")
@@ -119,6 +122,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         else:
             self.msg = "업로드 완료 했습니다."
             self.getErrorPopup(self.msg, title_txt="완료 팝업창")
+
 
     def runStart(self):
         print("runStart 시작")
@@ -167,6 +171,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         except Exception as e:
             self.msg = traceback.format_exc()
             print(self.msg)
+
 
     def stWork(self):
         print("startWork 시작")
@@ -272,6 +277,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.pbar1.setValue(95)
             self.lb4.setText("temp 폴더 삭제 완료")
 
+
     def progressBarTimer(self):
         # 1. QProgressBar의 현재값을 반환 한다.
         self.time = self.pbar1.value()
@@ -283,6 +289,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # 4. QProgressBar의 값이 최대값 이상이 되면 Timer를 중단 시켜 ProgressBar의 값이 더이상 증가되지 않도록 설정
         if self.time >= self.pbar1.maximum():
             self.timerVar.stop()
+
 
     def openmsgbox(self):
         print("openmsgbox 시작")
@@ -302,6 +309,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # QMessageBox 클릭한 버튼 결과 반환
         self.retval = self.msgbox.exec()
         print("self.retval: ", self.retval)
+
 
     def openDialogDir(self):
         print("openDialogDir 시작")
@@ -324,6 +332,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         except Exception as e:
             self.msg = traceback.format_exc()
             print(f"{self.msg=}")
+
 
     def runExcel(self):
         print("runExcel 시작")
@@ -356,6 +365,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.msg = "파일이 존재 하지 않습니다."
             self.getErrorPopup(self.msg)
 
+
     def getErrorPopup(self, msg, title_txt="에러 팝업 창"):
         print("getErrorPopup 시작")
 
@@ -375,6 +385,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.retval = self.msgbox.exec()
         # print('self.retval: ', self.retval)
 
+
     def openLangPop(self):
         print("openLangPop 시작")
 
@@ -390,6 +401,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         except Exception as e:
             print("error:", "언어 팝업창 로드 실패")
 
+
     def getLangitem(self):
         print("getLangitem 시작")
 
@@ -403,11 +415,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
             MainWindow.selectedItems.append(self.item)
 
+
     def setComboitem(self):
         print("setComboitem 시작")
         # 1. 콤보 박스에 type 값을 목록으로 채우기
         for i in self.typeL:
             self.cb1.addItem(i)
+
 
     def setDirectoryPath(self):
         print("setDirectoryPath 시작")
@@ -427,6 +441,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Excel 템플릿 경로
         excelTemplsDir = common.resourceDir / "excel-template"
         common.excelTemplsDir = excelTemplsDir
+
 
     def getISO(self):
         print("getISO 시작")

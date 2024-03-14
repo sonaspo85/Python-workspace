@@ -31,19 +31,6 @@
 
         <xsl:for-each-group select="$elements" group-starting-with="*[local-name() eq concat('h', $level)]">
             <xsl:choose>
-                <!-- <xsl:when test="($level &gt; 3 and $level &lt; 5) and 
-                                self::*[local-name() eq concat('h', $level)]">
-                    <xsl:for-each select="current-group()[1]">
-                        <xsl:copy>
-                            <xsl:apply-templates select="@*"/>
-                            <xsl:attribute name="class" select="concat(@class, ' shap-target remove-space')" />
-                            <xsl:apply-templates select="node()"/>
-                        </xsl:copy>
-                    </xsl:for-each>
-
-                    <xsl:sequence select="ast:group(current-group() except ., $level + 1)" />
-                </xsl:when> -->
-
                 <xsl:when test="self::*[local-name() eq concat('h', $level)]">
                     <xsl:variable name="name" select="if ($level = 1) then 'section' else 'div'" />
                     <xsl:element name="{$name}">

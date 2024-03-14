@@ -9,7 +9,11 @@
 
     
     
-    <xsl:variable name="docinfo" select="document(concat(ast:getPath(base-uri(document('')), '/'), '/../', 'docInfo.xml'))" />
+    <!-- <xsl:variable name="docinfo" select="document(concat(ast:getPath(base-uri(document('')), '/'), '/../', 'docInfo.xml'))" /> -->
+    <xsl:variable name="docinfo" select="document(resolve-uri(concat(ast:getPath(base-uri(document('')), '/'), '/../resource/', 'docInfo.xml')))" />
+
+    <!-- <xsl:variable name="docinfo0" select="replace(replace(replace(replace($docinfoF, ' ', '%20'), '\\', '/'), '\[', '%5B'), '\]', '%5D')" as="xs:string" />
+    <xsl:variable name="docinfo" select="document(iri-to-uri($docinfo0))" /> -->
 
     <xsl:variable name="srcDirs0" select="$docinfo/root/item[@id = 'srcDir']/@path" />
     <xsl:variable name="srcDir" select="replace(replace(replace(replace($srcDirs0, ' ', '%20'), '\\', '/'), '\[', '%5B'), '\]', '%5D')" as="xs:string" />

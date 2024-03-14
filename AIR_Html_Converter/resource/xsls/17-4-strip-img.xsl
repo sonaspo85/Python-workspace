@@ -32,7 +32,9 @@
                 <xsl:variable name="tdLastimg" select="tr[not(following-sibling::tr)]/td[not(following-sibling::td)]/*[not(following-sibling::node())][count(node()) = 1]/node()[not(following-sibling::node())][name()='img']" />
 
                 <div>
-                    <xsl:apply-templates select="$tdLastimg/parent::*/@class" />
+                    <!-- <xsl:apply-templates select="$tdLastimg/parent::*/@class" /> -->
+                    <xsl:attribute name="class" select="'Noteobject'" />
+                    
                     <xsl:copy-of select="$tdLastimg" />
                 </div>
             </xsl:when>
@@ -44,7 +46,8 @@
                 <xsl:variable name="tdLastimg" select="tr[not(following-sibling::tr)]/td[not(following-sibling::td)]/*[not(following-sibling::node())]/node()[not(following-sibling::node())][name()='img']" />
                 
                 <div>
-                    <xsl:apply-templates select="$tdLastimg/parent::*/@class" />
+                    <!-- <xsl:apply-templates select="$tdLastimg/parent::*/@class" /> -->
+                    <xsl:attribute name="class" select="'Noteobject'" />
                     <xsl:copy-of select="$tdLastimg" />
                 </div>
             </xsl:when>
@@ -57,7 +60,6 @@
     <xsl:template match="td">
         <xsl:variable name="cur" select="." />
         <xsl:variable name="ancesTable" select="ancestor::table[1]" />
-
 
         <xsl:choose>
             <xsl:when test="parent::tr[not(following-sibling::tr)] and 
@@ -89,6 +91,33 @@
             <xsl:when test="not(following-sibling::node()) and 
                             ancestor::td[not(following-sibling::node())]
                             /parent::tr[not(following-sibling::node())]">
+            </xsl:when>
+
+            <xsl:when test="parent::div[matches(@class, 'Heading')]">
+                <div>
+                    <xsl:attribute name="class" select="'Noteobject'" />
+                    <xsl:copy>
+                        <xsl:apply-templates select="@*, node()" />
+                    </xsl:copy>
+                </div>
+            </xsl:when>
+
+            <xsl:when test="following-sibling::node()[1][matches(@class, 'UnorderList_2_Indent1')]">
+                <div>
+                    <xsl:attribute name="class" select="'Noteobject'" />
+                    <xsl:copy>
+                        <xsl:apply-templates select="@*, node()" />
+                    </xsl:copy>
+                </div>
+            </xsl:when>
+
+            <xsl:when test="following-sibling::node()[1][matches(@class, 'indent_1')]/node()[1][matches(@class, 'UnorderList_2_Indent1')]">
+                <div>
+                    <xsl:attribute name="class" select="'Noteobject'" />
+                    <xsl:copy>
+                        <xsl:apply-templates select="@*, node()" />
+                    </xsl:copy>
+                </div>
             </xsl:when>
         
             <xsl:otherwise>

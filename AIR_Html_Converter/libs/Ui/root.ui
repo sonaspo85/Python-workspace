@@ -358,7 +358,7 @@
       <number>1</number>
      </property>
      <property name="text">
-      <string>마션</string>
+      <string>Martian</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

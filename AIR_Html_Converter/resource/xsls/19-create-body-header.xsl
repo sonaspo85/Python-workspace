@@ -61,20 +61,20 @@
                                             <a href="javascript:void(0);" class="main_btn">
                                                 <xsl:value-of select="$chapternode" />
                                                 <i class="fa fa-angle-down" aria-hidden="true">&#xFEFF;</i>
-
-                                                <ul class="sub_menu">
-                                                    <xsl:for-each select="descendant::h2">
-                                                        <xsl:variable name="cur" select="." />
-                                                        <xsl:variable name="id" select="@ast-id" />
-                                                        <li>
-                                                            <a class="sub_btn">
-                                                                <xsl:attribute name="href" select="concat('#', $id)" />
-                                                                <xsl:value-of select="$cur" />
-                                                            </a>
-                                                        </li>
-                                                    </xsl:for-each>
-                                                </ul>
                                             </a>
+                                            <ul class="sub_menu">
+                                                <xsl:for-each select="descendant::h2">
+                                                    <xsl:variable name="cur" select="." />
+                                                    <xsl:variable name="id" select="@ast-id" />
+                                                    <li>
+                                                        <a class="sub_btn">
+                                                            <xsl:attribute name="href" select="concat('#', $id)" />
+                                                            <xsl:value-of select="$cur" />
+                                                        </a>
+                                                    </li>
+                                                </xsl:for-each>
+                                            </ul>
+                                            
                                         </li>
                                     </xsl:for-each>
                                 </ul>

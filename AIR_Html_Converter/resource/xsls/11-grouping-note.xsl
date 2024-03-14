@@ -24,9 +24,9 @@
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
 
-            <xsl:for-each-group select="*" group-starting-with="para[matches(@class, '(note_heading|warning_heading)')]">
+            <xsl:for-each-group select="*" group-starting-with="para[matches(@class, '(Note_Heading|Warning_Heading)')]">
                 <xsl:choose>
-                    <xsl:when test="current-group()[1][matches(@class, '(note_heading|warning_heading)')]">
+                    <xsl:when test="current-group()[1][matches(@class, '(Note_Heading|Warning_Heading)')]">
                         <xsl:value-of select="$open" disable-output-escaping="yes" />
                         <xsl:apply-templates select="current-group()[1]"/>
 
@@ -48,7 +48,7 @@
         <xsl:param name="group" />
 
         <xsl:choose>
-            <xsl:when test="$group[1][matches(@class, '(description|indentgroup|unorderlist_\d)')]">
+            <xsl:when test="$group[1][matches(@class, '(Description|indentgroup|UnorderList_\d)')]">
                 <xsl:apply-templates select="$group[1]" />
                 
                 <xsl:call-template name="grouping">

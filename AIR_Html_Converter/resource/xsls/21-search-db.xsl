@@ -22,7 +22,7 @@
 
     <xsl:template match="root">
         <xsl:variable name="isocode" select="@isocode" />
-        <!-- <xsl:variable name="filename" select="concat('file:////', $srcDir, '/output/', $isocode, '/search/jsons/search_db.js')" /> -->
+        
         <xsl:variable name="filename">
             <xsl:choose>
                 <xsl:when test="number($langmapCnt) &gt; 1">

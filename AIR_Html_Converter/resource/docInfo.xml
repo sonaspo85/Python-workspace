@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF8'?>
 <root type="FAC" videoSwitch="off" modelNumber="123">
-  <item id="projectDir" path="G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/PYTHON/python-workspace/AIR_Html_Converter"/>
-  <item id="srcDir" path="G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/PYTHON/python-workspace/AIR_Html_Converter/srcDir/소스"/>
-  <item id="resourceDir" path="G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/PYTHON/python-workspace/AIR_Html_Converter/resource"/>
-  <item id="tempDir" path="G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/PYTHON/python-workspace/AIR_Html_Converter/srcDir/소스/temp"/>
-  <item id="xslsDir" path="G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/PYTHON/python-workspace/AIR_Html_Converter/resource/xsls"/>
-  <item id="excelTemplsDir" path="G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/PYTHON/python-workspace/AIR_Html_Converter/resource/excel-template"/>
-  <item id="langsMap" sequence="English=EN"/>
+  <item id="projectDir" path="H:/Workspace/Python-workspace/AIR_Html_Converter"/>
+  <item id="srcDir" path="H:/Workspace/Python-workspace/AIR_Html_Converter/srcDir"/>
+  <item id="resourceDir" path="H:/Workspace/Python-workspace/AIR_Html_Converter/resource"/>
+  <item id="tempDir" path="H:/Workspace/Python-workspace/AIR_Html_Converter/srcDir/temp"/>
+  <item id="xslsDir" path="H:/Workspace/Python-workspace/AIR_Html_Converter/resource/xsls"/>
+  <item id="excelTemplsDir" path="H:/Workspace/Python-workspace/AIR_Html_Converter/resource/excel-template"/>
+  <item id="langsMap" sequence="Danish=DA, Dutch=NL, Estonian=ET, Argentine_Spanish=AES, Brazilian_Portuguese=BPT, Bulgarian=BG, Canadian_French=CFR, Albanian=SQ, Arabic=AR, Chinese=ZH_CN, Croatian=HR"/>
 </root>

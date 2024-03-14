@@ -31,7 +31,7 @@
             <xsl:apply-templates select="@*" mode="abc" />
 
             <xsl:variable name="str0">
-                <xsl:for-each-group select="*" group-adjacent="matches(@class, 'unorderlist')">
+                <xsl:for-each-group select="*" group-adjacent="matches(@class, 'UnorderList')">
                     <xsl:choose>
                         <xsl:when test="current-grouping-key()">
                             <ul>
@@ -46,19 +46,23 @@
                 </xsl:for-each-group>
             </xsl:variable>
 
-            <xsl:for-each-group select="$str0/*" group-adjacent="matches(@class, '^orderlist')">
-                <xsl:choose>
-                    <xsl:when test="current-grouping-key()">
-                        <ol>
+            <xsl:variable name="var1">
+                <xsl:for-each-group select="$str0/*" group-adjacent="matches(@class, '^OrderList')">
+                    <xsl:choose>
+                        <xsl:when test="current-grouping-key()">
+                            <ol>
+                                <xsl:apply-templates select="current-group()" mode="abc" />
+                            </ol>
+                        </xsl:when>
+                    
+                        <xsl:otherwise>
                             <xsl:apply-templates select="current-group()" mode="abc" />
-                        </ol>
-                    </xsl:when>
-                
-                    <xsl:otherwise>
-                        <xsl:apply-templates select="current-group()" mode="abc" />
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:for-each-group>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:for-each-group>
+            </xsl:variable>
+
+            <xsl:copy-of select="$var1" />
         </xsl:copy>
     </xsl:template>
 
@@ -67,7 +71,7 @@
             <xsl:apply-templates select="@*" mode="abc" />
 
             <xsl:variable name="str0">
-                <xsl:for-each-group select="node()" group-adjacent="matches(@class, 'unorderlist')">
+                <xsl:for-each-group select="node()" group-adjacent="matches(@class, 'UnorderList')">
                     <xsl:choose>
                         <xsl:when test="current-grouping-key()">
                             <ul>
@@ -82,7 +86,7 @@
                 </xsl:for-each-group>
             </xsl:variable>
 
-            <xsl:for-each-group select="$str0/node()" group-adjacent="matches(@class, '^orderlist')">
+            <xsl:for-each-group select="$str0/node()" group-adjacent="matches(@class, '^OrderList')">
                 <xsl:choose>
                     <xsl:when test="current-grouping-key()">
                         <ol>
@@ -103,7 +107,7 @@
             <xsl:apply-templates select="@*" mode="abc" />
 
             <xsl:variable name="str0">
-                <xsl:for-each-group select="node()" group-adjacent="matches(@class, 'unorderlist')">
+                <xsl:for-each-group select="node()" group-adjacent="matches(@class, 'UnorderList')">
                     <xsl:choose>
                         <xsl:when test="current-grouping-key()">
                             <ul>
@@ -118,7 +122,7 @@
                 </xsl:for-each-group>
             </xsl:variable>
 
-            <xsl:for-each-group select="$str0/node()" group-adjacent="matches(@class, '^orderlist')">
+            <xsl:for-each-group select="$str0/node()" group-adjacent="matches(@class, '^OrderList')">
                 <xsl:choose>
                     <xsl:when test="current-grouping-key()">
                         <ol>
@@ -134,12 +138,12 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match="para[child::para[matches(@class, 'orderlist')]]" mode="abc">
+    <xsl:template match="para[child::para[matches(lower-case(@class), 'orderlist')]]" mode="abc">
         <xsl:copy>
             <xsl:apply-templates select="@*" mode="abc" />
 
             <xsl:variable name="str0">
-                <xsl:for-each-group select="node()" group-adjacent="matches(@class, 'unorderlist')">
+                <xsl:for-each-group select="node()" group-adjacent="matches(@class, 'UnorderList')">
                     <xsl:choose>
                         <xsl:when test="current-grouping-key()">
                             <ul>
@@ -154,19 +158,23 @@
                 </xsl:for-each-group>
             </xsl:variable>
 
-            <xsl:for-each-group select="$str0/node()" group-adjacent="matches(@class, '^orderlist')">
-                <xsl:choose>
-                    <xsl:when test="current-grouping-key()">
-                        <ol>
+            <xsl:variable name="str1">
+                <xsl:for-each-group select="$str0/node()" group-adjacent="matches(@class, '^OrderList')">
+                    <xsl:choose>
+                        <xsl:when test="current-grouping-key()">
+                            <ol>
+                                <xsl:apply-templates select="current-group()" mode="abc" />
+                            </ol>
+                        </xsl:when>
+                    
+                        <xsl:otherwise>
                             <xsl:apply-templates select="current-group()" mode="abc" />
-                        </ol>
-                    </xsl:when>
-                
-                    <xsl:otherwise>
-                        <xsl:apply-templates select="current-group()" mode="abc" />
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:for-each-group>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:for-each-group>
+            </xsl:variable>
+
+            <xsl:copy-of select="$str1" />
         </xsl:copy>
     </xsl:template>
 

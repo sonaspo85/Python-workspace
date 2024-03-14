@@ -64,17 +64,17 @@
         <xsl:variable name="fileNum" select="xs:integer(replace(@file, '(content)(\d)(.html)', '$2'))" />
 
         <section file="{concat('content', $fileNum + 1, '.html')}">
-            <h1 class="chapter" id="Video_C">
+            <h1 class="Chapter" id="Video_C">
                 <img src="./img/title_icon.png" alt="" />
                 <xsl:value-of select="$vcTxt" />
             </h1>
 
             <div class="Heading1">
-                <h2 class="heading1 shap-target remove-space" ast-id="video_H1">
+                <h2 class="Heading1 shap-target remove-space" ast-id="video_H1">
                     <xsl:value-of select="$vhTxt" />
                 </h2>
 
-                <div class="unorderList_1" id="video_list">
+                <div class="UnorderList_1" id="video_list">
                     <p id="video_list-1">
                         <xsl:copy-of select="$getLinkNode" />
                     </p>

@@ -18,14 +18,15 @@
     </xsl:template>
     
     <xsl:template match="characterstylerange">
+        <xsl:variable name="class" select="lower-case(@class)" />
         <xsl:choose>
             <xsl:when test="not(node())" />
             
-            <xsl:when test="matches(@class, 'no character style')">
+            <xsl:when test="matches($class, 'no character style')">
                 <xsl:apply-templates />
             </xsl:when>
             
-            <xsl:when test="matches(@class, 'note')">
+            <xsl:when test="matches($class, 'note')">
                 <xsl:element name="span">
                     <xsl:apply-templates select="@*, node()" />
                 </xsl:element>
@@ -49,10 +50,10 @@
             <xsl:apply-templates select="@* except (@appliedcellstyle, @rowspan, @columnspan)" />
             
             <xsl:if test="@appliedcellstyle">
-                <xsl:variable name="vals" select="replace(@appliedcellstyle, '\$id/\[none\]', '')" />
+                <xsl:variable name="vals" select="replace(@appliedcellstyle, '\$ID/\[None\]', '')" />
                 
                 <xsl:choose>
-                    <xsl:when test="matches(@appliedcellstyle, '^\$id/\[none\]$')">
+                    <xsl:when test="matches(@appliedcellstyle, '^\$ID/\[None\]$')">
                     </xsl:when>
                     
                     <xsl:otherwise>
@@ -73,6 +74,4 @@
         </xsl:copy>
     </xsl:template>
 
-    
-    
 </xsl:stylesheet>

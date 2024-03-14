@@ -8,16 +8,42 @@
     version="2.0">
     
     <xsl:import href="00-commonVar.xsl" />
-    <xsl:output method="xml" encoding="UTF-8" indent="no" omit-xml-declaration="yes" />
+    <xsl:output method="html" encoding="UTF-8" indent="no" omit-xml-declaration="yes" />
     <xsl:strip-space elements="*"/>
 
-    <!-- <xsl:variable name="navF" select="document(concat($tempDir, '/19-create-body-header.xml'))/root" /> -->
     
-    
-    <xsl:template match="@* | node()" mode="#all">
-        <xsl:copy inherit-namespaces="no" copy-namespaces="no">
-            <xsl:apply-templates select="@*, node()" mode="#current"/>
+    <xsl:template match="@* | node()">
+        <xsl:copy>
+            <xsl:choose>
+                <xsl:when test="@ast-id and @id">
+                    <xsl:apply-templates select="@* except @ast-id" />
+                </xsl:when>
+
+                <xsl:when test="@ast-id and not(@id)">
+                    <xsl:attribute name="id" select="@ast-id" />
+                    <xsl:apply-templates select="@* except @ast-id" />
+                </xsl:when>
+            
+                <xsl:otherwise>
+                    <xsl:apply-templates select="@*" />
+                </xsl:otherwise>
+            </xsl:choose>
+
+            <xsl:apply-templates select="node()" />
         </xsl:copy>
+    </xsl:template>
+
+    <xsl:template match="@*" priority="5">
+        <xsl:choose>
+            <xsl:when test="matches(name(), 'class') and 
+                            matches(., '^\[No character style\]$')">
+                
+            </xsl:when>
+        
+            <xsl:otherwise>
+                <xsl:attribute name="{name()}" select="." />
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template match="root">
@@ -25,7 +51,7 @@
 
         <xsl:for-each select="section">
             <xsl:variable name="cur" select="." />
-            <!-- <xsl:variable name="filename" select="concat('file:////', $srcDir, '/output/', $isocode, '/', @data-id)" /> -->
+            
             <xsl:variable name="filename">
                 <xsl:choose>
                     <xsl:when test="number($langmapCnt) &gt; 1">
@@ -34,12 +60,13 @@
                 
                     <xsl:otherwise>
                         <xsl:value-of select="concat('file:////', $srcDir, '/output/', upper-case(concat($type, '_', $modelcode)), '/', @data-id)" />
+                        <!-- <xsl:value-of select="concat('file:////', 'G:/MS-Drive/OneDrive - UOU/WORK/Workspace/WORK/JAVA/java-workspace/Martian/srcDir/output/', upper-case(concat($type, '_', $modelcode)), '/', @data-id)" /> -->
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
             
             <xsl:result-document href="{$filename}">
-                <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html></xsl:text>
+                <!-- <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html></xsl:text> -->
                 <html>
                     <xsl:attribute name="data-key" select="'cont-page'" />
                     <xsl:attribute name="data-language" select="$isocode" />
@@ -47,7 +74,7 @@
 
                     <xsl:attribute name="dir">
                         <xsl:choose>
-                            <xsl:when test="matches($isocode, '^(ar)$')">
+                            <xsl:when test="matches($isocode, '^(AR)$')">
                                 <xsl:value-of select="'rtl'" />
                             </xsl:when>
                         
@@ -66,7 +93,7 @@
                             <main id="main">
                                 <xsl:apply-templates select="@*" />
 
-                                <section class="chapter">
+                                <section class="Chapter">
                                     <xsl:apply-templates select="$cur/node()" />
                                 </section>
                             </main>

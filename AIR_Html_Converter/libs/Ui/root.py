@@ -199,7 +199,7 @@ class Ui_MainWindow(object):
         self.pb4.setText(_translate("MainWindow", "변환 시작"))
         self.lb1.setText(_translate("MainWindow", "타입 : "))
         self.label.setText(_translate("MainWindow", "코드 : "))
-        self.mainTitle.setText(_translate("MainWindow", "마션"))
+        self.mainTitle.setText(_translate("MainWindow", "Martian"))
 
 
 if __name__ == "__main__":

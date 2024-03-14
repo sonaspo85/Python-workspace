@@ -10,11 +10,7 @@
     <xsl:import href="00-commonVar.xsl" />
     <xsl:output method="xml" encoding="UTF-8" indent="no" />
     <xsl:strip-space elements="*"/>
-    
-    
-    <!-- <xsl:variable name="tempDirs01" select="replace(replace(replace(replace($tempDir, ' ', '%20'), '\\', '/'), '\[', '%5B'), '\]', '%5D')" as="xs:string" />
-    <xsl:variable name="tempDirs02" select="iri-to-uri(concat('file:////', $tempDirs01, '/linkCollection.xml'))" />
-    <xsl:variable name="directory" select="document($tempDirs02)/root" /> -->
+
 
     <xsl:key name="hyperlink" match="*[@hyperkey]" use="@hyperkey" />
     
@@ -39,7 +35,6 @@
                     <span class="see-page">
                         <xsl:element name="a">
                             <xsl:attribute name="href" select="$destkey02" />
-                            <!-- <xsl:attribute name="destvalues" select="$destvalues" /> -->
                             <xsl:apply-templates select="@* except @crosskey"/>
 
                             <xsl:choose>
@@ -69,7 +64,7 @@
 
         <xsl:element name="img">
             <xsl:apply-templates select="@* except @href"/>
-            <xsl:attribute name="src" select="concat($defaultpath, replace(@href, '(.ai)', '.png'))" />
+            <xsl:attribute name="src" select="concat($defaultpath, replace(@href, '(.ai)$', '.png'))" />
             <xsl:apply-templates select="node()"/>
         </xsl:element>
     </xsl:template>

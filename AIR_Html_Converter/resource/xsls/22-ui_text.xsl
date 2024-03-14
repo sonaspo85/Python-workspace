@@ -18,7 +18,6 @@
     <xsl:variable name="isocode" select="root()/root/@isocode" />
     
     <xsl:template match="/">
-        <!-- <xsl:variable name="filename" select="concat('file:////', $srcDir, '/output/', $isocode, '/js/ui_text.js')" /> -->
         <xsl:variable name="filename">
             <xsl:choose>
                 <xsl:when test="number($langmapCnt) &gt; 1">
@@ -32,7 +31,9 @@
         </xsl:variable>
 
         <xsl:result-document href="{$filename}">
-            <xsl:text>var model = ""</xsl:text>
+            <xsl:text>var model_2 = "</xsl:text>
+            <xsl:value-of select="$type" />
+            <xsl:text>"</xsl:text>
             <xsl:text>&#xa;</xsl:text>
             <xsl:text>var message = {</xsl:text>
 

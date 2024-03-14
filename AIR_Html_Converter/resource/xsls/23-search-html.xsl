@@ -8,7 +8,7 @@
     version="2.0">
     
     <xsl:import href="00-commonVar.xsl" />
-    <xsl:output method="xml" encoding="UTF-8" indent="no" omit-xml-declaration="yes" />
+    <xsl:output method="html" encoding="UTF-8" indent="no" omit-xml-declaration="yes" />
     <xsl:strip-space elements="*"/>
 
     
@@ -21,7 +21,7 @@
     <xsl:template match="root">
         <xsl:variable name="cur" select="." />
         <xsl:variable name="isocode" select="@isocode" />
-        <!-- <xsl:variable name="filename" select="concat('file:////', $srcDir, '/output/', $isocode, '/search/search.html')" /> -->
+        
         <xsl:variable name="filename">
             <xsl:choose>
                 <xsl:when test="number($langmapCnt) &gt; 1">
@@ -35,7 +35,7 @@
         </xsl:variable>
         
         <xsl:result-document href="{$filename}">
-            <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html></xsl:text>
+            <!-- <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html></xsl:text> -->
             <html>
                 <xsl:attribute name="data-key" select="'search-page'" />
                 <xsl:attribute name="data-language" select="$isocode" />
@@ -43,7 +43,7 @@
 
                 <xsl:attribute name="dir">
                     <xsl:choose>
-                        <xsl:when test="matches($isocode, '^(ar)$')">
+                        <xsl:when test="matches($isocode, '^(AR)$')">
                             <xsl:value-of select="'rtl'" />
                         </xsl:when>
                     
@@ -73,8 +73,8 @@
                         <xsl:copy-of select="$body-footer/root/*" />
                     </div>
 
-                    <script src="../common/js/common.js">&#xFEFF;</script>
-                    <script src="../common/js/contents.js">&#xFEFF;</script>
+                    <script src="../js/common.js"></script>
+                    <script src="../js/search.js"></script>
                 </body>
             </html>
         </xsl:result-document>
@@ -87,6 +87,14 @@
             <xsl:when test="matches(name(.), '(href|src)') and 
                             parent::*[matches(local-name(), '^(a|img)$')]">
                 <xsl:attribute name="{name()}" select="concat('.', .)" />
+            </xsl:when>
+
+            <xsl:when test="matches(name(.), 'id') and . = 'id_search_page'">
+                <xsl:attribute name="{name()}" select="'id_search'" />
+            </xsl:when>
+
+            <xsl:when test="matches(name(.), 'id') and . = 'id_search_button_page'">
+                <xsl:attribute name="{name()}" select="'id_search_button'" />
             </xsl:when>
         
             <xsl:otherwise>

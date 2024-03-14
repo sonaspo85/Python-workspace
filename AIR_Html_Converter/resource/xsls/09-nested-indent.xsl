@@ -20,7 +20,7 @@
     
     <xsl:template match="*" priority="5">
         <xsl:choose>
-            <xsl:when test="matches(@class, 'indent1') and 
+            <xsl:when test="matches(@class, 'Indent1') and 
                             following-sibling::node()[1][matches(@class, 'indentgroup2')]">
                 <xsl:copy>
                     <xsl:apply-templates select="@* | node()"/>
@@ -29,26 +29,26 @@
             </xsl:when>
             
             <xsl:when test="matches(@class, 'indentgroup2') and 
-                            preceding-sibling::node()[1][matches(@class, 'indent1')]">
+                            preceding-sibling::node()[1][matches(@class, 'Indent1')]">
             </xsl:when>
             <!-- ************************************************ -->
-            <xsl:when test="matches(@class, 'unorderlist_\d') and 
-                            following-sibling::node()[1][matches(@class, 'empty_indent\d')]">
+            <xsl:when test="matches(@class, 'UnorderList_\d') and 
+                            following-sibling::node()[1][matches(@class, 'Empty_Indent\d')]">
                 <xsl:copy>
                     <xsl:apply-templates select="@* | node()"/>
 
                     <div>
                         <xsl:attribute name="class" select="tokenize(following-sibling::*[1]/@class, ' ')[last()]" />
-                        <xsl:copy-of select="following-sibling::node()[1][matches(@class, 'empty_indent\d')]" />
+                        <xsl:copy-of select="following-sibling::node()[1][matches(@class, 'Empty_Indent\d')]" />
                     </div>
                 </xsl:copy>
             </xsl:when>
 
-            <xsl:when test="matches(@class, 'empty_indent\d') and 
-                            preceding-sibling::node()[1][matches(@class, 'unorderlist_\d')]">
+            <xsl:when test="matches(@class, 'Empty_Indent\d') and 
+                            preceding-sibling::node()[1][matches(@class, 'UnorderList_\d')]">
             </xsl:when>
             <!-- ************************************************ -->
-            <xsl:when test="matches(@class, 'unorderlist_\d') and 
+            <xsl:when test="matches(@class, 'UnorderList_\d') and 
                             following-sibling::node()[1][matches(@class, 'indentgroup1')]">
                 <xsl:copy>
                     <xsl:apply-templates select="@* | node()"/>
@@ -57,32 +57,32 @@
             </xsl:when>
 
             <xsl:when test="matches(@class, 'indentgroup1') and 
-                            preceding-sibling::node()[1][matches(@class, 'unorderlist_\d')]">
+                            preceding-sibling::node()[1][matches(@class, 'UnorderList_\d')]">
             </xsl:when>
             <!-- ************************************************ -->
-            <xsl:when test="matches(@class, 'unorderlist_\d') and 
-                            not(matches(@class, 'indent')) and
-                            following-sibling::node()[1][matches(@class, '_indent\d')]">
+            <xsl:when test="matches(@class, 'UnorderList_\d') and 
+                            not(matches(@class, 'Indent')) and
+                            following-sibling::node()[1][matches(@class, '_Indent\d')]">
                 <xsl:copy>
                     <xsl:apply-templates select="@* | node()"/>
-                    <xsl:copy-of select="following-sibling::node()[1][matches(@class, '_indent\d')]" />
+                    <xsl:copy-of select="following-sibling::node()[1][matches(@class, '_Indent\d')]" />
                 </xsl:copy>
             </xsl:when>
 
-            <xsl:when test="matches(@class, '_indent\d') and 
-                            preceding-sibling::node()[1][matches(@class, 'unorderlist_\d')][not(matches(@class, 'indent'))]">
+            <xsl:when test="matches(@class, '_Indent\d') and 
+                            preceding-sibling::node()[1][matches(@class, 'UnorderList_\d')][not(matches(@class, 'Indent'))]">
             </xsl:when>
             <!-- ************************************************ -->
-            <xsl:when test="matches(@class, '^orderlist_\d') and 
-                            following-sibling::node()[1][matches(@class, 'empty_indent\d')]">
+            <xsl:when test="matches(@class, '^OrderList_\d') and 
+                            following-sibling::node()[1][matches(@class, 'Empty_Indent\d')]">
                 <xsl:copy>
                     <xsl:apply-templates select="@* | node()"/>
-                    <xsl:copy-of select="following-sibling::node()[1][matches(@class, 'empty_indent\d')]" />
+                    <xsl:copy-of select="following-sibling::node()[1][matches(@class, 'Empty_Indent\d')]" />
                 </xsl:copy>
             </xsl:when>
 
-            <xsl:when test="matches(@class, 'empty_indent\d') and 
-                            preceding-sibling::node()[1][matches(@class, '^orderlist_\d')]">
+            <xsl:when test="matches(@class, 'Empty_Indent\d') and 
+                            preceding-sibling::node()[1][matches(@class, '^OrderList_\d')]">
             </xsl:when>
 
             <xsl:otherwise>

@@ -46,10 +46,11 @@
 
     <xsl:template match="para">
         <xsl:variable name="hyperkey" select="descendant::hyperlinktextdestination[1]/@destinationuniquekey" />
-        
+        <xsl:variable name="class" select="@class" />
+
         <xsl:variable name="name">
             <xsl:choose>
-                <xsl:when test="matches(@class, 'orderlist')">
+                <xsl:when test="matches(lower-case($class), 'orderlist')">
                     <xsl:value-of select="'li'" />
                 </xsl:when>
 
@@ -65,7 +66,7 @@
             </xsl:if>
 
             <xsl:choose>
-                <xsl:when test="matches(@class, 'orderlist')">
+                <xsl:when test="matches(lower-case($class), 'orderlist')">
                     <xsl:apply-templates select="@* except @ast-id" />
                 </xsl:when>
             
@@ -81,8 +82,18 @@
     <xsl:template match="span">
         <xsl:choose>
             <xsl:when test="count(node()) = 1 and 
-                            child::image[matches(@class, 'c_note')]">
+                            child::image[matches(@class, 'C_Note')]">
                 <xsl:apply-templates />
+            </xsl:when>
+
+            <xsl:when test="@class = 'C_URL'">
+                <xsl:copy>
+                    <xsl:apply-templates select="@*"/>
+                    <a>
+                        <xsl:attribute name="href" select="." />
+                        <xsl:apply-templates select="node()" />
+                    </a>
+                </xsl:copy>
             </xsl:when>
         
             <xsl:otherwise>

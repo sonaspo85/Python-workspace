@@ -40,18 +40,18 @@
         </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="*[parent::*[matches(@class, 'table_screen')]]">
+    <xsl:template match="*[parent::*[matches(@class, 'Table_Screen')]]">
         <xsl:variable name="name" select="local-name(.)" />
 
         <xsl:choose>
             <xsl:when test="$name = 'cell'">
                 <xsl:choose>
                     <xsl:when test="count(node()) = 1 and 
-                                    child::para[@class = 'normalparagraphstyle']">
+                                    child::para[@class = 'NormalParagraphStyle']">
                     </xsl:when>
 
                     <!-- <xsl:when test="preceding-sibling::node()[1][$name='cell'][count(node()) = 1]
-                                    /child::para[@class = 'normalparagraphstyle']">
+                                    /child::para[@class = 'NormalParagraphStyle']">
                         <xsl:apply-templates />
                     </xsl:when> -->
                 
@@ -74,7 +74,7 @@
     
     <xsl:template match="div">
         <xsl:choose>
-            <xsl:when test="matches(@class, 'table_screen')">
+            <xsl:when test="matches(@class, 'Table_Screen')">
                 <xsl:apply-templates />
             </xsl:when>
         

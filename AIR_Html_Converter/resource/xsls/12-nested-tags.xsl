@@ -32,7 +32,7 @@
         <xsl:variable name="cls" select="@class" />
 
         <xsl:choose>
-            <xsl:when test="matches(@class, 'orderlist_02') and 
+            <xsl:when test="matches(@class, 'OrderList_02') and 
                             following-sibling::node()[1][matches(@class, 'notesection')]
                             /following-sibling::node()[1][matches(@class, $cls)]">
                 <xsl:copy>
@@ -59,13 +59,13 @@
                 </xsl:copy>
             </xsl:when>
 
-            <xsl:when test="matches(@class, 'orderlist_02') and 
+            <xsl:when test="matches(@class, 'OrderList_02') and 
                             preceding-sibling::node()[1][matches(@class, 'notesection')]
-                            /preceding-sibling::node()[1][matches(@class, 'orderlist_02')]">
+                            /preceding-sibling::node()[1][matches(@class, 'OrderList_02')]">
             </xsl:when>
             <!-- ************************************************* -->
-            <xsl:when test="matches(@class, 'orderlist_02') and 
-                            following-sibling::node()[1][matches(@class, 'unorderlist_1')]
+            <xsl:when test="matches(@class, 'OrderList_02') and 
+                            following-sibling::node()[1][matches(@class, 'UnorderList_1')]
                             /following-sibling::node()[1][matches(@class, $cls)]">
                 <xsl:copy>
                     <xsl:apply-templates select="@*" mode="#current"/>
@@ -75,7 +75,7 @@
                             <xsl:when test="not(following-sibling::*)">
                                 <xsl:copy>
                                     <xsl:apply-templates select="@* | node()"/>
-                                    <xsl:copy-of select="$cur/following-sibling::node()[1][matches(@class, 'unorderlist_1')]" />
+                                    <xsl:copy-of select="$cur/following-sibling::node()[1][matches(@class, 'UnorderList_1')]" />
                                 </xsl:copy>
                             </xsl:when>
                         
@@ -91,8 +91,8 @@
                 </xsl:copy>
             </xsl:when>
             <!-- ************************************************* -->
-            <xsl:when test="matches(@class, 'orderlist_02') and 
-                            following-sibling::node()[1][matches(@class, 'unorderlist_1')]
+            <xsl:when test="matches(@class, 'OrderList_02') and 
+                            following-sibling::node()[1][matches(@class, 'UnorderList_1')]
                             /following-sibling::node()[1][matches(@class, 'notesection')]">
                 <xsl:copy>
                     <xsl:apply-templates select="@*" mode="#current"/>
@@ -102,7 +102,7 @@
                             <xsl:when test="not(following-sibling::*)">
                                 <xsl:copy>
                                     <xsl:apply-templates select="@* | node()" mode="#current"/>
-                                    <xsl:copy-of select="$cur/following-sibling::node()[1][matches(@class, 'unorderlist_1')]" />
+                                    <xsl:copy-of select="$cur/following-sibling::node()[1][matches(@class, 'UnorderList_1')]" />
                                 </xsl:copy>
                             </xsl:when>
                         
@@ -130,16 +130,16 @@
         <xsl:variable name="cls" select="@class" />
 
         <xsl:choose>
-            <xsl:when test="matches(@class, 'orderlist_02') and 
+            <xsl:when test="matches(@class, 'OrderList_02') and 
                             following-sibling::node()[1][matches(@class, $cls)]">
                 <xsl:copy>
                     <xsl:apply-templates select="@*, node()"/>
 
-                    <xsl:copy-of select="$cur/following-sibling::node()[1][matches(@class, 'orderlist_02')]/node()" />
+                    <xsl:copy-of select="$cur/following-sibling::node()[1][matches(@class, 'OrderList_02')]/node()" />
                 </xsl:copy>
             </xsl:when>
 
-            <xsl:when test="matches(@class, 'orderlist_02') and 
+            <xsl:when test="matches(@class, 'OrderList_02') and 
                             preceding-sibling::node()[1][matches(@class, $cls)]">
             </xsl:when>
         
@@ -155,18 +155,18 @@
         <xsl:variable name="cur" select="." />
 
         <xsl:choose>
-            <xsl:when test="matches(@class, 'unorderlist_1') and 
-                            preceding-sibling::node()[1][matches(@class, 'orderlist_02')] and 
-                            following-sibling::node()[1][matches(@class, 'orderlist_02')]">
+            <xsl:when test="matches(@class, 'UnorderList_1') and 
+                            preceding-sibling::node()[1][matches(@class, 'OrderList_02')] and 
+                            following-sibling::node()[1][matches(@class, 'OrderList_02')]">
             </xsl:when>
 
-            <xsl:when test="matches(@class, 'unorderlist_1') and 
-                            preceding-sibling::node()[1][matches(@class, 'orderlist_02')] and 
+            <xsl:when test="matches(@class, 'UnorderList_1') and 
+                            preceding-sibling::node()[1][matches(@class, 'OrderList_02')] and 
                             following-sibling::node()[1][matches(@class, 'notesection')]">
             </xsl:when>
 
             <!-- ************************************************* -->
-            <xsl:when test="matches(@class, 'unorderlist_\d') and 
+            <xsl:when test="matches(@class, 'UnorderList_\d') and 
                             following-sibling::node()[1][matches(@class, 'indentgroup')]">
                 <xsl:copy>
                     <xsl:apply-templates select="@*" mode="#current" />
@@ -201,12 +201,12 @@
     <xsl:template match="div" mode="abc">
         <xsl:choose>
             <xsl:when test="matches(@class, 'notesection') and 
-                            preceding-sibling::node()[1][matches(@class, 'orderlist_02')] and 
-                            following-sibling::node()[1][matches(@class, 'orderlist_02')]">
+                            preceding-sibling::node()[1][matches(@class, 'OrderList_02')] and 
+                            following-sibling::node()[1][matches(@class, 'OrderList_02')]">
             </xsl:when>
 
             <xsl:when test="matches(@class, 'indentgroup') and 
-                            preceding-sibling::*[1][matches(@class, 'unorderlist_\d')]">
+                            preceding-sibling::*[1][matches(@class, 'UnorderList_\d')]">
             </xsl:when>
         
             <xsl:otherwise>
