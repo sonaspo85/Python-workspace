@@ -5,7 +5,9 @@ srcDir/
 __pycache__/
 .vscode/
 resources/
+resource/
 jre/
 *.zip
 *.idml
-
+json/
+temp/

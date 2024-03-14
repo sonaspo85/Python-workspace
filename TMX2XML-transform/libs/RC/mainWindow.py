@@ -76,9 +76,9 @@ class mainWindow(QMainWindow, Ui_MainWindow):
             print(f'{self.dic_map=}')
 
             if cobotxt != '' and txtfield != '' and len(self.dic_map) > 0:
-                trans = transformXSLT()
+                trans = transformXSLT(self.dic_map)
                 trans.set_sequence()
-
+                trans.runXSLT()
 
 
 
@@ -111,7 +111,7 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         try:
             # 폴더 다이얼로그
             # fname = QFileDialog.getExistingDirectory(self, '소스 폴더를 선택해 주세요.')
-            fname = "H:/Workspace/Other-Dev/_Common_Tool/tmx2xml-transform/resource"
+            fname = "H:/Workspace/Python-workspace/TMX2XML-transform/resource"
             # 입력 받은 문자열 경로를 Path 객체로 변환
             self.srcpath = Path(fname).absolute().as_posix()
 
