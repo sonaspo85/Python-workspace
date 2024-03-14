@@ -15,10 +15,16 @@ class setfileNlang:
 
         files = os.listdir(self.srcpath)
 
+        dic_map = {}
+
         for file in files:
             abspath = os.path.join(self.srcpath, file)
-            # print('abspath:', abspath)
-            filename = file.replace('.tmx', '')
+            print('abspath:', abspath)
+            # filename = file.replace('.tmx', '')
+            filename = os.path.splitext(file)[0]
 
+            # codes.xml 에서 언어 목록 이 포함 된다면
             readCodef = readCodeF(filename)
-            readCodef.runReadCodes()
+            lang2 = readCodef.runReadCodes()
+
+            dic_map[]

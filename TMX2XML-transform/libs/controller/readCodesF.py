@@ -22,27 +22,27 @@ class readCodeF:
         doc = et.parse(codesP, parser)
         root = doc.getroot()
 
-
-
+        # 정규식 사용하여 xpath 검증
         regexpNS = "http://exslt.org/regular-expressions"
         find = et.XPath("//*[re:match(local-name(), '(item)$')]", namespaces={'re': regexpNS})
 
         result = find(root)
 
+        # dic_map = {}
+        lang2 = ''
+
         for child in result:
             team = child.get('team')
             lang = child.getparent().get('lang')
 
-            pattern = self.filename
+            '''pattern = team
             comp = re.compile(pattern)
 
-            if comp.search()
+            if comp.search(self.filename):
+                lang2 = lang'''
+
+            if self.filename.find(team) > -1:
+                lang2 = lang
 
 
-
-
-
-        # for items in root.findall('items'):
-        #     lang = items.get('lang')
-        #     print('lang:', lang)
-
+        return lang2

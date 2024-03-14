@@ -60,11 +60,21 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         self.bt2.clicked.connect(self.openDialog)
 
 
+        self.bt1.clicked.connect(self.btStart)
 
 
 
 
+    def btStart(self):
+        print('btStart 시작')
 
+        try:
+            cobotxt = self.cb1.currentText()
+            txtfield = self.le1.text()
+
+
+        except Exception as e:
+            print('error:', traceback.format_exc())
 
 
     def readTeamF(self):
@@ -95,10 +105,6 @@ class mainWindow(QMainWindow, Ui_MainWindow):
             fname = "H:/Workspace/Other-Dev/_Common_Tool/tmx2xml-transform/resource"
             # 입력 받은 문자열 경로를 Path 객체로 변환
             self.srcpath = Path(fname).absolute().as_posix()
-
-
-
-
 
         except Exception as e:
             print(traceback.format_exc())
