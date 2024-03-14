@@ -1,10 +1,268 @@
 <root>
-    <items lang="ARA3">
+    <items lang="ARA">
         <item team="Arabic_ar-SA" />
         <item team="en-GB_ar-SA" />
         <item team="ARA_ar-SA" />
         <item team="(AC)_ar-SA" />
         <item team="en-US_ar-SA" />
     </items>
-
+    <items lang="ARA-AS">
+        <item team="ARA-AS" />
+    </items>
+    <items lang="ARA-EU">
+        <item team="ARA-EU" />
+    </items>
+    <items lang="ALB">
+        <item team="sq-AL" />
+    </items>
+    <items lang="AZE">
+        <item team="az-Latn-AZ" />
+    </items>
+    <items lang="Arm">
+        <item team="hy-AM" />
+    </items>
+    <items lang="Arm">
+        <item team="hy-AM" />
+    </items>
+    <items lang="BEN">
+        <item team="bn-BD" />
+        <item team="bn-IN" />
+    </items>
+    <items lang="BUL">
+        <item team="bg-BG" />
+    </items>
+    <items lang="BUR">
+        <item team="Mya_my-MM" />
+    </items>
+    <items lang="SamsungOne-BUR">
+        <item team="SamsungOne_my-MM" />
+    </items>
+    <items lang="Zawgyi-BUR">
+        <item team="Zawgyi_my-MM" />
+    </items>
+    <items lang="CA-FRE">
+        <item team="fr-CA" />
+    </items>
+    <items lang="S-CHI">
+        <item team="_SC_zh-CN" />
+        <item team="(PRC)_zh-CN" />
+        <item team="en-US_zh-CN" />
+        <item team="S-CHI_zh-CN" />
+        <item team="(AC)_zh-CN" />
+        <item team="en-GB_zh-CN" />
+    </items>
+    <items lang="KOR2S-CHI">
+        <item team="K2SC_zh-CN" />
+        <item team="ko-KR_zh-CN" />
+    </items>
+    <items lang="SC2ENG">
+        <item team="SC2ENG" />
+    </items>
+    <items lang="KOR2TPE">
+        <item team="K2E_zh-TW" />
+    </items>
+    <items lang="SG-CHI">
+        <item team="zh-SG" />
+    </items>
+    <items lang="HKG">
+        <item team="zh-HK" />
+    </items>
+    <items lang="TPE">
+        <item team="zh-TW" />
+    </items>
+    <items lang="CRO">
+        <item team="hr-HR" />
+    </items>
+    <items lang="CZE">
+        <item team="cs-CZ" />
+    </items>
+    <items lang="DAN">
+        <item team="da-DK" />
+    </items>
+    <items lang="DUT">
+        <item team="nl-NL" />
+    </items>
+    <items lang="EST">
+        <item team="et-EE" />
+    </items>
+    <items lang="ENGB2KOR">
+        <item team="en-GB_ko-KR" />
+        <item team="en-GB2ko-KR" />
+    </items>
+    <items lang="ENUS2KOR">
+        <item team="E2K_ko-KR" />
+        <item team="en-US_ko-KR" />
+    </items>
+    <items lang="KOR2ENG-US">
+        <item team="K2E_en-US" />
+        <item team="ko-KR_en-US" />
+    </items>
+    <items lang="FAR">
+        <item team="fa-IR" />
+    </items>
+    <items lang="FIN">
+        <item team="fi-FI" />
+    </items>
+    <items lang="FRE">
+        <item team="fr-FR" />
+    </items>
+    <items lang="GEORGIAN">
+        <item team="ka-GE" />
+    </items>
+    <items lang="GER">
+        <item team="de-DE" />
+    </items>
+    <items lang="GRE">
+        <item team="el-GR" />
+    </items>
+    <items lang="HEB">
+        <item team="he-IL" />
+    </items>
+    <items lang="HIN">
+        <item team="hi-IN" />
+    </items>
+    <items lang="HUN">
+        <item team="hu-HU" />
+    </items>
+    <items lang="IND">
+        <item team="id-ID" />
+    </items>
+    <items lang="ITA">
+        <item team="it-IT" />
+    </items>
+    <items lang="JPN">
+        <item team="ja-JP" />
+    </items>
+    <items lang="KAZ">
+        <item team="kk-KZ" />
+    </items>
+    <items lang="Main-KHM">
+        <item team="Main_km-KH" />
+    </items>
+    <items lang="Vendor-KHM">
+        <item team="Vendor_km-KH" />
+    </items>
+    <items lang="LAO">
+        <item team="lo-LA" />
+    </items>
+    <items lang="Ltn-SPA">
+        <item team="es-AR" />
+    </items>
+    <items lang="LAT">
+        <item team="lv-LV" />
+    </items>
+    <items lang="LIT">
+        <item team="lt-LT" />
+    </items>
+    <items lang="MKD">
+        <item team="mk-MK" />
+    </items>
+    <items lang="MON">
+        <item team="mn-MN" />
+    </items>
+    <items lang="NOR">
+        <item team="nb-NO" />
+    </items>
+    <items lang="POL">
+        <item team="pl-PL" />
+    </items>
+    <items lang="POR">
+        <item team="pt-PT" />
+    </items>
+    <items lang="B-POR">
+        <item team="pt-BR" />
+    </items>
+    <items lang="ROM">
+        <item team="ro-RO" />
+    </items>
+    <items lang="RUS">
+        <item team="ru-RU" />
+    </items>
+    <items lang="SER">
+        <item team="sr-Latn-RS" />
+    </items>
+    <items lang="SLK">
+        <item team="sk-SK" />
+    </items>
+    <items lang="SLV">
+        <item team="sl-SI" />
+    </items>
+    <items lang="SPA">
+        <item team="es-ES" />
+    </items>
+    <items lang="M-SPA">
+        <item team="es-MX" />
+    </items>
+    <items lang="SWE">
+        <item team="sv-SE" />
+    </items>
+    <items lang="THA">
+        <item team="th-TH" />
+    </items>
+    <items lang="TUR">
+        <item team="tr-TR" />
+    </items>
+    <items lang="UKR">
+        <item team="uk-UA" />
+    </items>
+    <items lang="URD">
+        <item team="ur-PK" />
+    </items>
+    <items lang="UZB">
+        <item team="uz-Latn-UZ" />
+    </items>
+    <items lang="VIE">
+        <item team="vi-VN" />
+    </items>
+    <items lang="MAL">
+        <item team="ms-MY" />
+    </items>
+    <items lang="IRI">
+        <item team="ga-IE" />
+    </items>
+    <items lang="Malta">
+        <item team="mt-MT" />
+    </items>
+    <items lang="BOS">
+        <item team="bs-Latn-BA" />
+    </items>
+    <items lang="KIR">
+        <item team="ky-KG" />
+    </items>
+    <items lang="RGK">
+        <item team="tg-Cyrl-TJ" />
+    </items>
+    <items lang="TUK">
+        <item team="tk-TM" />
+    </items>
+    <items lang="CNR">
+        <item team="sr-Latn-ME" />
+    </items>
+    <items lang="MAR">
+        <item team="mr-IN" />
+    </items>
+    <items lang="TEL">
+        <item team="te-IN" />
+    </items>
+    <items lang="TAM">
+        <item team="ta-IN" />
+    </items>
+    <items lang="GUJ">
+        <item team="gu-IN" />
+    </items>
+    <items lang="KAN">
+        <item team="kn-IN" />
+    </items>
+    <items lang="ODI">
+        <item team="or-IN" />
+    </items>
+    <items lang="MAY">
+        <item team="ml-IN" />
+    </items>
+    <items lang="PUN">
+        <item team="pa-IN" />
+    </items>
+    <items lang="IRL">
+        <item team="is-IS" />
+    </items>
 </root>

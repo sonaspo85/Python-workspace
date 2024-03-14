@@ -27,4 +27,7 @@ class setfileNlang:
             readCodef = readCodeF(filename)
             lang2 = readCodef.runReadCodes()
 
-            dic_map[]
+            if not lang2 == '':
+                dic_map[abspath] = lang2
+
+        return dic_map

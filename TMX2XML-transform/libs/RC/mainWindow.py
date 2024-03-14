@@ -5,6 +5,7 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QFileDialog
 
 from libs.UI.root import Ui_MainWindow
+from libs.controller.transformXSLT import transformXSLT
 from setExePath import *
 
 from pathlib import Path
@@ -21,6 +22,7 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 
         self.teamL = []
         self.srcpath = ''
+        self.dic_map = {}
 
         # root.py 파일내 선언된 위젭 및 컨테이너에 접근
         self.setupUi(self)
@@ -71,6 +73,13 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         try:
             cobotxt = self.cb1.currentText()
             txtfield = self.le1.text()
+            print(f'{self.dic_map=}')
+
+            if cobotxt != '' and txtfield != '' and len(self.dic_map) > 0:
+                trans = transformXSLT()
+                trans.set_sequence()
+
+
 
 
         except Exception as e:
@@ -113,7 +122,9 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         try:
             # 선택한 디렉토리 반복
             setfilenlang = setfileNlang(self.srcpath)
-            setfilenlang.setDict()
+            self.dic_map = setfilenlang.setDict()
+
+
 
 
 
