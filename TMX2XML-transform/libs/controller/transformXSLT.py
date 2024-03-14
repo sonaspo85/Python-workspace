@@ -42,7 +42,7 @@ class transformXSLT:
 
                 # print(f'{inF=}')
                 # print(f'{outF=}')
-                # print(f'{xsltF=}')
+                print(f'{xsltF=}')
 
                 xsltpro.transform_to_file(source_file=inF, output_file=outF, stylesheet_file=xsltF)
                 xsltpro.clear_parameters()

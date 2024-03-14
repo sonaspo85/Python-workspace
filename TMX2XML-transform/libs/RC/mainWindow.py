@@ -2,7 +2,7 @@
 import traceback
 
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QMainWindow, QFileDialog
+from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox
 
 from libs.UI.root import Ui_MainWindow
 from libs.controller.transformXSLT import transformXSLT
@@ -56,15 +56,9 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         # team.xml 파일 읽기
         self.readTeamF()
 
-        # self.read_codesF()
-
 
         self.bt2.clicked.connect(self.openDialog)
-
-
         self.bt1.clicked.connect(self.btStart)
-
-
 
 
     def btStart(self):
@@ -80,10 +74,20 @@ class mainWindow(QMainWindow, Ui_MainWindow):
                 trans.set_sequence()
                 trans.runXSLT()
 
-
+            else:
+                print('파트, 소스 경로 등을 입력해주세요.')
 
         except Exception as e:
             print('error:', traceback.format_exc())
+
+
+        try:
+            QMessageBox.information(self, '작업완료', '작업이 완료 되었습니다.', QMessageBox.Ok)
+
+        except Exception as e:
+            print(traceback.format_exc())
+
+
 
 
     def readTeamF(self):
@@ -114,6 +118,8 @@ class mainWindow(QMainWindow, Ui_MainWindow):
             fname = "H:/Workspace/Python-workspace/TMX2XML-transform/resource"
             # 입력 받은 문자열 경로를 Path 객체로 변환
             self.srcpath = Path(fname).absolute().as_posix()
+            self.le1.setText(self.srcpath)
+
 
         except Exception as e:
             print(traceback.format_exc())
