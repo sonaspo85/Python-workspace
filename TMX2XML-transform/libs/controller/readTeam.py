@@ -25,9 +25,13 @@ class readTeam:
 
         for child in root.iter('item'):
             team_vals = child.get('team')
+            folder = child.get('folder')
             # print(f'{team_vals=}')
 
-            self.teamL.append(team_vals)
+            tuple = (team_vals, folder)
+            # self.teamL.append(team_vals)
+            self.teamL.append(tuple)
+
 
         return self.teamL
 

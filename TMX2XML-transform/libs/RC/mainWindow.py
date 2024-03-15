@@ -5,6 +5,7 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox
 
 from libs.UI.root import Ui_MainWindow
+from libs.controller.ftpcontroller import ftpClass
 from libs.controller.transformXSLT import transformXSLT
 from setExePath import *
 
@@ -56,7 +57,6 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         # team.xml 파일 읽기
         self.readTeamF()
 
-
         self.bt2.clicked.connect(self.openDialog)
         self.bt1.clicked.connect(self.btStart)
 
@@ -69,24 +69,56 @@ class mainWindow(QMainWindow, Ui_MainWindow):
             txtfield = self.le1.text()
             print(f'{self.dic_map=}')
 
+            ftpfolder = ''
+            for tuple in self.teamL:
+                team = tuple[0]
+                folder = tuple[1]
+
+                if team == cobotxt:
+                    ftpfolder = folder
+
+
             if cobotxt != '' and txtfield != '' and len(self.dic_map) > 0:
-                trans = transformXSLT(self.dic_map)
-                trans.set_sequence()
-                trans.runXSLT()
+                # xslt 실행
+                try:
+                    trans = transformXSLT(self.dic_map)
+                    trans.set_sequence()
+                    trans.runXSLT()
+
+
+                except Exception as e:
+                    print('error:', traceback.format_exc())
+
+
+                # ftp 업로드
+                try:
+                    ftp = ftpClass(cobotxt)
+                    ftp.runFTP()
+
+                except Exception as e:
+                    print('error:', traceback.format_exc())
+
 
             else:
-                print('파트, 소스 경로 등을 입력해주세요.')
+                print('파트, 소스 경로 모두 입력해주세요.')
+
+                msgbox = QMessageBox()
+                msgbox.setWindowTitle('오류가 발생 되었습니다.')
+                iconpath = resource_path1('UI/icon.png')
+                qicon = QIcon(iconpath)
+                msgbox.setWindowIcon(qicon)
+
+                msgbox.setText('파트, 소스 경로 모두 입력해주세요.')
+                msgbox.setStandardButtons(QMessageBox.Ok)
+
+                msgbox.exec_()
+
 
         except Exception as e:
             print('error:', traceback.format_exc())
 
-
-        try:
+        else:
             QMessageBox.information(self, '작업완료', '작업이 완료 되었습니다.', QMessageBox.Ok)
-
-        except Exception as e:
-            print(traceback.format_exc())
-
 
 
 
@@ -98,7 +130,14 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         print(f'{self.teamL=}')
 
         # 리스트 표현식으로 팀목록 추가
-        [self.cb1.addItem(x) for x in self.teamL]
+        # [self.cb1.addItem(x) for x in self.teamL]
+
+        for tuple in self.teamL:
+            type = tuple[0]
+
+            self.cb1.addItem(type)
+
+
 
 
     def read_codesF(self):

@@ -19,6 +19,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(10, 10, 321, 211))
+        self.frame.setStyleSheet("border: 1px solid #e6fa98;")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -29,7 +30,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame_2 = QtWidgets.QFrame(self.verticalLayoutWidget)
-        self.frame_2.setStyleSheet("border: 1px solid black;")
+        self.frame_2.setStyleSheet("border: 1px solid #e6fa98;")
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
@@ -49,7 +50,7 @@ class Ui_MainWindow(object):
         self.bt1.setObjectName("bt1")
         self.verticalLayout.addWidget(self.frame_2)
         self.frame_3 = QtWidgets.QFrame(self.verticalLayoutWidget)
-        self.frame_3.setStyleSheet("border: 1px solid black;")
+        self.frame_3.setStyleSheet("border: 1px solid #e6fa98;")
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
@@ -85,13 +86,3 @@ class Ui_MainWindow(object):
         self.bt1.setText(_translate("MainWindow", "실행"))
         self.label_3.setText(_translate("MainWindow", "TMX 폴더 선택"))
         self.bt2.setText(_translate("MainWindow", "폴더 선택"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
