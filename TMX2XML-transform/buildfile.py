@@ -41,7 +41,7 @@ PyInstaller.__main__.run(
         # '--add-data=resource;resource',
         "--add-data=libs/UI;libs/UI",
         "--add-data=libs/resource;libs/resource",
-        # "--add-data=libs/xslt;libs/xslt",
+        "--add-data=libs/xslt;libs/xslt",
         "--onefile",
         # '--splash=' + splashF,
         "--noconsole",

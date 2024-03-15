@@ -39,7 +39,7 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         print('initUI 시작')
 
         self.setWindowTitle("tmx2xml-transform")
-        self.setFixedSize(338, 232)
+        self.setFixedSize(344, 322)
 
         # 메인 윈도우창 상단바에 아이콘 넣기
         iconpath = resource_path1('libs/UI/icon.png')
@@ -95,10 +95,13 @@ class mainWindow(QMainWindow, Ui_MainWindow):
                     msg = 'temp, json 폴더 삭제 실패'
                     self.getErrorPopup(msg)
 
+                else:
+                    self.pbar1.setValue(30)
+                    self.lb2.setText("temp 폴더 삭제 완료")
 
                 # xslt 실행
                 try:
-                    trans = transformXSLT(self.dic_map)
+                    trans = transformXSLT(self.dic_map, self.pbar1, self.lb2)
                     trans.set_sequence()
                     trans.runXSLT()
 

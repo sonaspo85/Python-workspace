@@ -5,7 +5,7 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('libs/UI', 'libs/UI'), ('libs/resource', 'libs/resource')],
+    datas=[('libs/UI', 'libs/UI'), ('libs/resource', 'libs/resource'), ('libs/xslt', 'libs/xslt')],
     hiddenimports=['PyQt5.sip', 'darkdetect'],
     hookspath=[],
     hooksconfig={},
