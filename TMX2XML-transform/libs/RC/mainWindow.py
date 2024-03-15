@@ -111,6 +111,10 @@ class mainWindow(QMainWindow, Ui_MainWindow):
                     self.getErrorPopup(msg)
                     return
 
+                else:
+                    self.pbar1.setValue(90)
+                    self.lb2.setText("temp 폴더 삭제 완료")
+
                 # ftp 업로드
                 try:
                     ftp = ftpClass(ftpfolder)
@@ -121,9 +125,9 @@ class mainWindow(QMainWindow, Ui_MainWindow):
                     self.getErrorPopup(msg)
                     return
 
-                # else:
-                #     self.pbar1.setValue(90)
-                #     self.lb2.setText("temp 폴더 삭제 완료")
+                else:
+                    self.pbar1.setValue(100)
+                    self.lb2.setText("temp 폴더 삭제 완료")
 
             else:
                 print('파트, 소스 경로 모두 입력해주세요.')
@@ -202,8 +206,8 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 
         try:
             # 폴더 다이얼로그
-            # fname = QFileDialog.getExistingDirectory(self, '소스 폴더를 선택해 주세요.')
-            fname = "H:/Workspace/Python-workspace/TMX2XML-transform/resource"
+            fname = QFileDialog.getExistingDirectory(self, '소스 폴더를 선택해 주세요.')
+            # fname = "H:/Workspace/Python-workspace/TMX2XML-transform/resource"
             # 입력 받은 문자열 경로를 Path 객체로 변환
             self.srcpath = Path(fname).absolute().as_posix()
             self.le1.setText(self.srcpath)

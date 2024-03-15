@@ -36,6 +36,7 @@ class transformXSLT:
             self.list.clear()
 
 
+
     def runXSLT(self):
         print('runXSLT 시작')
 
@@ -62,7 +63,7 @@ class transformXSLT:
                         xsltpro.clear_parameters()
 
 
-                        self.cnt += 10
+                        self.cnt += 5
                         self.pbar1.setValue(self.cnt)
                         self.lb2.setText(xslname)
 

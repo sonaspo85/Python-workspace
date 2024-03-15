@@ -1,17 +1,13 @@
 # -*- coding: utf8 -*-
-import socket
-import sys
-import time
 import traceback
 
 import qdarktheme
 from PyQt5.QtCore import Qt, QTimer
-from PyQt5.QtGui import QFontDatabase, QFont, QPixmap, QMovie
+from PyQt5.QtGui import QPixmap, QMovie
 from PyQt5.QtWidgets import QApplication, QLabel, QHBoxLayout
-from qtpy import QtGui
+
 from libs.RC.mainWindow import mainWindow
 from setExePath import *
-
 
 
 def showStartScreen():
