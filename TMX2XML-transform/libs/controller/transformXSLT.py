@@ -26,23 +26,26 @@ class transformXSLT:
 
 
 
-
     def runXSLT(self):
         print('runXSLT 시작')
 
-        with PySaxonProcessor(license=False) as saxon:
-            xsltpro = saxon.new_xslt30_processor()
+        try:
+            with PySaxonProcessor(license=False) as saxon:
+                xsltpro = saxon.new_xslt30_processor()
 
-            for x in self.list:
-                iox = x
+                for x in self.list:
+                    iox = x
 
-                inF = Path(iox.getinF()).absolute().as_posix()
-                outF = Path(iox.getoutF()).absolute().as_posix()
-                xsltF = Path(iox.getxsltF()).absolute().as_posix()
+                    inF = Path(iox.getinF()).absolute().as_posix()
+                    outF = Path(iox.getoutF()).absolute().as_posix()
+                    xsltF = Path(iox.getxsltF()).absolute().as_posix()
 
-                # print(f'{inF=}')
-                # print(f'{outF=}')
-                print(f'{xsltF=}')
+                    # print(f'{inF=}')
+                    # print(f'{outF=}')
+                    print(f'{xsltF=}')
 
-                xsltpro.transform_to_file(source_file=inF, output_file=outF, stylesheet_file=xsltF)
-                xsltpro.clear_parameters()
+                    xsltpro.transform_to_file(source_file=inF, output_file=outF, stylesheet_file=xsltF)
+                    xsltpro.clear_parameters()
+
+        except Exception as e:
+            raise

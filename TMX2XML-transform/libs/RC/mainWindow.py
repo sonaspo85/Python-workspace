@@ -44,7 +44,6 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         # 메인 윈도우창 상단바에 아이콘 넣기
         iconpath = resource_path1('libs/UI/icon.png')
         print(f'{iconpath=}')
-        # 상단바에 아이콘을 삽입하기 위해서는 setWindowIcon() 객체의 매개값으로 QIcon 객체가 할당되어야 한다.
         qicon = QIcon(iconpath)
         self.setWindowIcon(qicon)
 
@@ -81,7 +80,6 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 
 
             if cobotxt != '' and txtfield != '' and len(self.dic_map) > 0:
-
                 # 폴더 삭제
                 try:
                     tempD = os.path.join(self.projectDir, 'temp')
@@ -94,7 +92,8 @@ class mainWindow(QMainWindow, Ui_MainWindow):
                         shutil.rmtree(jsonD)
 
                 except Exception as e:
-                    print('error:', traceback.format_exc())
+                    msg = 'temp, json 폴더 삭제 실패'
+                    self.getErrorPopup(msg)
 
 
                 # xslt 실행
@@ -105,8 +104,9 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 
 
                 except Exception as e:
-                    print('error:', traceback.format_exc())
-
+                    msg = 'xslt 변환 실패'
+                    self.getErrorPopup(msg)
+                    return
 
                 # ftp 업로드
                 try:
@@ -114,7 +114,9 @@ class mainWindow(QMainWindow, Ui_MainWindow):
                     ftp.runFTP()
 
                 except Exception as e:
-                    print('error:', traceback.format_exc())
+                    msg = 'ftp 업로드 실패'
+                    self.getErrorPopup(msg)
+                    return
 
 
             else:
@@ -138,6 +140,29 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         else:
             QMessageBox.information(self, '작업완료', '작업이 완료 되었습니다.', QMessageBox.Ok)
 
+
+    def getErrorPopup(self, msg, title_txt="에러 팝업 창"):
+        print("getErrorPopup 시작")
+
+        self.msgbox = QMessageBox()
+        self.msgbox.setWindowTitle(title_txt)
+
+        # 상단바에 아이콘 넣기
+        iconpath = resource_path1('libs/UI/icon.png')
+        qicon = QIcon(iconpath)
+        # QMessageBox 상단바에 아이콘 넣기
+        self.msgbox.setWindowIcon(qicon)
+
+        # QMessageBox 내부에 표시될 아이콘
+        self.msgbox.setText(msg)
+        # self.msgbox.setInformativeText(msg)
+        # QMessageBox의 버튼
+        self.msgbox.setStandardButtons(QMessageBox.Ok)
+        # 포커스가 지정된 기본 버튼
+        self.msgbox.setDefaultButton(QMessageBox.Ok)
+        # QMessageBox 클릭한 버튼 결과 반환
+        self.retval = self.msgbox.exec()
+        # print('self.retval: ', self.retval)
 
 
     def readTeamF(self):
