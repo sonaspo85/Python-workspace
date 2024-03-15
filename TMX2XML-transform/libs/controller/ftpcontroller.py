@@ -20,7 +20,7 @@ class ftpClass:
 
         self.ftpclient = ftplib.FTP()
         self.ftpclient.encoding = 'utf-8'
-        self.projectDir = Path(resource_path1('')).absolute().as_posix()
+        self.projectDir = Path(resource_path2('')).absolute().as_posix()
         self.files = []
         self.directories = []
 

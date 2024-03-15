@@ -10,7 +10,10 @@ class transformXSLT:
 
     def __init__(self, dic_map, pbar1, lb2):
         self.list = []
-        self.projectDir = Path(resource_path1('')).absolute().as_posix()
+        self.projectDir = Path(resource_path2('')).absolute().as_posix()
+        self.xslDir = Path(resource_path1('')).absolute().as_posix()
+        print('self.xslDir:', self.xslDir)
+
         self.dic_map = dic_map
         self.pbar1 = pbar1
         self.lb2 = lb2
@@ -29,8 +32,8 @@ class transformXSLT:
 
             isocode = items[1]
 
-            self.list.append(InOutPathClas(srcpath, self.projectDir + '/temp/' + '01_0a-tmx2xml_' + isocode + '.xml', self.projectDir + '/libs/xslt/0a-tmx2xml.xsl'))
-            self.list.append(InOutPathClas(self.projectDir + '/temp/' + '01_0a-tmx2xml_' + isocode + '.xml', self.projectDir + '/json/' + isocode + '.JSON', self.projectDir + '/libs/xslt/0b-xml2json.xsl'))
+            self.list.append(InOutPathClas(srcpath, self.projectDir + '/temp/' + '01_0a-tmx2xml_' + isocode + '.xml', self.xslDir + '/libs/xslt/0a-tmx2xml.xsl'))
+            self.list.append(InOutPathClas(self.projectDir + '/temp/' + '01_0a-tmx2xml_' + isocode + '.xml', self.projectDir + '/json/' + isocode + '.JSON', self.xslDir + '/libs/xslt/0b-xml2json.xsl'))
 
             self.runXSLT()
             self.list.clear()

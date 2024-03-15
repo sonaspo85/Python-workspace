@@ -25,13 +25,14 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         self.teamL = []
         self.srcpath = ''
         self.dic_map = {}
+        self.srcpath = ''
 
         # root.py 파일내 선언된 위젭 및 컨테이너에 접근
         self.setupUi(self)
         self.initUI()
         # ui 윈도우창 출력
         self.show()
-        self.projectDir = Path(resource_path1('')).absolute().as_posix()
+        self.projectDir = Path(resource_path2('')).absolute().as_posix()
 
 
 
@@ -39,7 +40,7 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         print('initUI 시작')
 
         self.setWindowTitle("tmx2xml-transform")
-        self.setFixedSize(344, 322)
+        self.setFixedSize(344, 296)
 
         # 메인 윈도우창 상단바에 아이콘 넣기
         iconpath = resource_path1('libs/UI/icon.png')
@@ -66,6 +67,22 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         print('btStart 시작')
 
         try:
+            try:
+                if self.srcpath == '':
+                    self.srcpath = self.le1.text()
+
+                # print('self.srcpath111:', self.srcpath)
+
+                # 선택한 디렉토리 반복
+                setfilenlang = setfileNlang(self.srcpath)
+                self.dic_map = setfilenlang.setDict()
+
+
+            except Exception as e:
+                print(traceback.format_exc())
+
+
+
             cobotxt = self.cb1.currentText()
             txtfield = self.le1.text()
             print(f'{self.dic_map=}')
@@ -217,14 +234,3 @@ class mainWindow(QMainWindow, Ui_MainWindow):
             print(traceback.format_exc())
 
 
-        try:
-            # 선택한 디렉토리 반복
-            setfilenlang = setfileNlang(self.srcpath)
-            self.dic_map = setfilenlang.setDict()
-
-
-
-
-
-        except Exception as e:
-            print(traceback.format_exc())

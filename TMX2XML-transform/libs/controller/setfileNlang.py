@@ -23,11 +23,12 @@ class setfileNlang:
             # filename = file.replace('.tmx', '')
             filename = os.path.splitext(file)[0]
 
-            # codes.xml 에서 언어 목록 이 포함 된다면
-            readCodef = readCodeF(filename)
-            lang2 = readCodef.runReadCodes()
+            if file.endswith('.tmx'):
+                # codes.xml 에서 언어 목록 이 포함 된다면
+                readCodef = readCodeF(filename)
+                lang2 = readCodef.runReadCodes()
 
-            if not lang2 == '':
-                dic_map[abspath] = lang2
+                if not lang2 == '':
+                    dic_map[abspath] = lang2
 
         return dic_map
