@@ -1,4 +1,5 @@
 # -*- coding: utf8 -*-
+import shutil
 import traceback
 
 from PyQt5.QtGui import QIcon
@@ -30,6 +31,7 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         self.initUI()
         # ui 윈도우창 출력
         self.show()
+        self.projectDir = Path(resource_path1('')).absolute().as_posix()
 
 
 
@@ -79,6 +81,22 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 
 
             if cobotxt != '' and txtfield != '' and len(self.dic_map) > 0:
+
+                # 폴더 삭제
+                try:
+                    tempD = os.path.join(self.projectDir, 'temp')
+                    jsonD = os.path.join(self.projectDir, 'json')
+
+                    if os.path.isdir(tempD):
+                        shutil.rmtree(tempD)
+
+                    elif os.path.isdir(jsonD):
+                        shutil.rmtree(jsonD)
+
+                except Exception as e:
+                    print('error:', traceback.format_exc())
+
+
                 # xslt 실행
                 try:
                     trans = transformXSLT(self.dic_map)
@@ -92,7 +110,7 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 
                 # ftp 업로드
                 try:
-                    ftp = ftpClass(cobotxt)
+                    ftp = ftpClass(ftpfolder)
                     ftp.runFTP()
 
                 except Exception as e:

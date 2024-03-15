@@ -12,8 +12,8 @@ ftp_path = '/tmx_2/json/son'
 
 class ftpClass:
 
-    def __init__(self, cobotxt):
-        self.cobotxt = cobotxt
+    def __init__(self, ftpfolder):
+        self.ftpfolder = ftpfolder
 
         self.ftpclient = ftplib.FTP()
         self.ftpclient.encoding = 'utf-8'
@@ -40,8 +40,7 @@ class ftpClass:
         list = []
         self.ftpclient.dir(list.append)
 
-        for x in list:
-            print('x:', x)
+
 
         self.upLoadlocalTServer()
 
@@ -56,7 +55,7 @@ class ftpClass:
         for jsonF in files:
             filename = jsonF
             abspath = Path(jsonpath, jsonF).absolute().as_posix()
-            ftp_path2 = ftp_path  + '/' + filename
+            ftp_path2 = ftp_path  + '/' + self.ftpfolder + '/' + filename
 
             print('ftp_path2:', ftp_path2)
 
