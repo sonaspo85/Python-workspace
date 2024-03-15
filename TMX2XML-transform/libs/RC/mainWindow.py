@@ -103,7 +103,7 @@ class mainWindow(QMainWindow, Ui_MainWindow):
                 try:
                     trans = transformXSLT(self.dic_map, self.pbar1, self.lb2)
                     trans.set_sequence()
-                    trans.runXSLT()
+                    # trans.runXSLT()
 
 
                 except Exception as e:
@@ -121,6 +121,9 @@ class mainWindow(QMainWindow, Ui_MainWindow):
                     self.getErrorPopup(msg)
                     return
 
+                # else:
+                #     self.pbar1.setValue(90)
+                #     self.lb2.setText("temp 폴더 삭제 완료")
 
             else:
                 print('파트, 소스 경로 모두 입력해주세요.')

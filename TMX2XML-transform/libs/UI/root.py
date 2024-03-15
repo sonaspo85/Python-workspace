@@ -33,7 +33,8 @@ class Ui_MainWindow(object):
         self.pbar1 = QtWidgets.QProgressBar(self.frame_4)
         self.pbar1.setGeometry(QtCore.QRect(5, 3, 311, 23))
         self.pbar1.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.pbar1.setStyleSheet("border-style: none;")
+        self.pbar1.setStyleSheet("border-style: none;\n"
+"color: red;")
         self.pbar1.setProperty("value", 0)
         self.pbar1.setAlignment(QtCore.Qt.AlignCenter)
         self.pbar1.setObjectName("pbar1")

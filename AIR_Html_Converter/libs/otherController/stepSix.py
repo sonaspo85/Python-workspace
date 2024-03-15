@@ -71,6 +71,7 @@ class stepSix(common):
             msg = "docInfo update 실패"
             raise Exception(msg)
 
+
     def runEahSrc(self):
         print("runEahSrc 시작")
 
