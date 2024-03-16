@@ -6,7 +6,7 @@ class burger(models.Model):
     name = models.CharField(max_length=20)
     # 숫자를 저장하는 IntegerField
     price = models.IntegerField(default=0)
-    caloris =models.IntegerField(default=0)
+    calories =models.IntegerField(default=0)
 
 
     # str: 클래스 객체 자체의 내용을 출력하고 싶을때 사용

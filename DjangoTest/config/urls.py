@@ -17,9 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from config.views import sub_list1
+from config.views import *
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("subpage1/", sub_list1), # 첫번째 인수의 subpage1 경로로 접근하면 sub_list() 함수 호출
+    path("aaa/", sub_list1), # 첫번째 인수의 subpage1 경로로 접근하면 sub_list() 함수 호출
+    path("bbb/", sub_list2),
 ]
