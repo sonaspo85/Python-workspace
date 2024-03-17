@@ -122,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-# Django가 정적 파일을 찾을 디렉토리 지정
+# Django가 정적 파일을 찾을 디렉토리 지정ㅁㅁ
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
