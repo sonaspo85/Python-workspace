@@ -122,6 +122,9 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+# Django가 정적 파일을 찾을 디렉토리 지정
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
