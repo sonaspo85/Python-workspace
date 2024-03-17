@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ko">
+    <body>
+        <h1>Post list</h1>
+        <!-- 글 목록을 ul요소내에 표시 -->
+        <ul>
+           {% for post in posts %}
+                <li>
+                    <!-- 각각의 글의 제목과 내용을 나누어 표시 -->
+                    <h2>{{ post.title }}</h2>
+                    <h2>{{ post.content }}</h2>
+           {% endfor %}
+        </ul>
+    </body>
+</html>
