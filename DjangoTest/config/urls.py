@@ -22,5 +22,5 @@ from config.views import *
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("aaa/", sub_list1), # 첫번째 인수의 subpage1 경로로 접근하면 sub_list() 함수 호출
-    path("bbb/", sub_list2),
+    path("bbb/bbb.html", sub_list2),
 ]

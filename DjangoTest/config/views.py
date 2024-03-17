@@ -24,5 +24,28 @@ def sub_list1(request):
 
 # 추가 페이지 구성하기2
 def sub_list2(request):
-    print(request.GET)
-    return render(request, 'bbb.html')
+    # 브라우저로부터 '?keyword=son'으로 키와 값을 값을 할당 받았다면
+    # get('키객체') 함수로 키객체에 해당하는 값 객체를 추출할 수 있다.
+    keyword = request.GET.get('keyword')
+    print(keyword)
+
+
+    # keyword 속성의 값이 None이 아닌 경우
+    if keyword is not None:
+        # name__contains: name 속성이 keyword 값을 포함하는 경우
+        bur = burger.objects.filter(name__contains=keyword)
+
+        # price__contains: price 속성이 keyword 값을 포함하는 경우
+        # bur = burger.objects.filter(price__contains=keyword)
+        print(f'{bur=}')
+
+    # keyword 값이 주어지지 않아 None으로 할당된 경우
+    else:
+        # 빈 QuerySet 객체를 할당
+        bur = burger.objects.none()
+
+    # Template에 데이터를 전달하기 위해 context 딕셔너리 객체 선언후, render() 함수의 세번째 인수로 할당
+    context = {
+        'burger':bur,
+    }
+    return render(request, 'bbb.html', context)
