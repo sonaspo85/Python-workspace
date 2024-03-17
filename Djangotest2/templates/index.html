@@ -1,6 +1,39 @@
+{% load static %}
 <!doctype html>
 <html lang="ko">
-    <body>
-        <h1>안녕하세요. index 페이지 입니다.</h1>
-    </body>
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div id="navbar">
+        <span>pylog</span>
+    </div>
+    <div id="index">
+        <h1><a href="/posts/">pylog</a></h1>
+
+        <div id="post-list">
+            <ul class="posts">
+                {% for post in posts %}
+                <li class="post">
+                    <div class="title">{{ post.title }}</div>
+                    <p>{{ post.content }}</p>
+                    <ul class="comments">
+                        <!-- 역방향 관계로 Post 객체 자신과 연결된 모든 Comment 객체 반복 -->
+                        {% for comment in post.comment_set.all %}
+                        <li class="comment">{{ comment.content }}</li>
+
+                        <!-- for 태그로 순회시 순회할 항목이 없는 경우 -->
+                        {% empty %}
+                        <li class="comment-empty">아직 댓글이 없습니다.</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+
 </html>
