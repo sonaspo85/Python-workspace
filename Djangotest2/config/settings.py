@@ -126,6 +126,7 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # 유저가 업로드하는 정적 파일 디렉토리
+# 유저가 업로드하는 정적 파일들은 자동으로 media 디렉토리가 생성되면서 저장된다.
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / 'media'
 
