@@ -114,7 +114,7 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 
                 else:
                     self.pbar1.setValue(30)
-                    self.lb2.setText("temp 폴더 삭제 완료")
+                    self.lb2.setText("레거시 temp, json 폴더 삭제 완료")
 
                 # xslt 실행
                 try:
@@ -130,7 +130,7 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 
                 else:
                     self.pbar1.setValue(90)
-                    self.lb2.setText("temp 폴더 삭제 완료")
+                    self.lb2.setText("xslt 변환 성공")
 
                 # ftp 업로드
                 try:
@@ -144,7 +144,21 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 
                 else:
                     self.pbar1.setValue(100)
-                    self.lb2.setText("temp 폴더 삭제 완료")
+                    self.lb2.setText("ftp 업로드 성공")
+
+
+                # temp 폴더 삭제
+                try:
+                    shutil.rmtree(self.projectDir + '/temp/')
+
+                except Exception as e:
+                    msg = 'temp 폴더 삭제 실패'
+                    self.getErrorPopup(msg)
+                    return
+
+                else:
+                    self.pbar1.setValue(100)
+                    self.lb2.setText("temp 폴더 삭제 성공")
 
             else:
                 print('파트, 소스 경로 모두 입력해주세요.')

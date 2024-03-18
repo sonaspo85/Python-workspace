@@ -59,8 +59,8 @@ if __name__ == '__main__':
         qdarktheme.setup_theme(custom_colors={"primary": "#e6fa98"})
 
         splash_screen = showStartScreen()
-        QTimer.singleShot(1 * 1000, splash_screen.close)
-        QTimer.singleShot(1000, mainwindow.show)
+        QTimer.singleShot(2 * 1000, splash_screen.close)
+        QTimer.singleShot(2000, mainwindow.show)
 
         # 인터페이스 동작
         app.exec()
