@@ -125,6 +125,10 @@ STATIC_URL = "static/"
 # Django가 정적 파일을 찾을 디렉토리 지정
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
+# 유저가 업로드하는 정적 파일 디렉토리
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
