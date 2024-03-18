@@ -13,3 +13,6 @@ def post_list(request):
     # 3번째 인수로 Template에 전달할 데이터 할당
     return render(request, 'post_list.html', context)
 
+
+def post_detail(request, post_id):
+    return render(request, 'post_detail.html')

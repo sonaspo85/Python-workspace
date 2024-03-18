@@ -18,7 +18,13 @@
                             <li>아직 댓글이 없습니다.</li>
                         {% endfor %}
                     </ul>
-
+                    <!-- 템플릿에서 썸네일 이미지를 보여줄때 src 속성의 값은 thumbnail.url 속성으로 이미지의 URL을 가져 온다.-->
+                    {% if post.thumbnail %}
+                        <img src="{{ post.thumbnail.url }}" alt="" />
+                    {% else %}
+                        <img src="" alt="" />
+                    {% endif %}
+                </li>
            {% endfor %}
         </ul>
     </body>
