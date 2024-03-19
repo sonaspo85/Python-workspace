@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path
 
-from blog.views import post_list, post_detail
+from blog.views import post_list, post_detail, post_add
 from config.views import index
 
 from django.conf import settings
@@ -14,6 +14,7 @@ urlpatterns = [
     path("", index), # 경고 없을때 index 페이지로 연결
     path("posts/", post_list),
     path("posts/<int:post_id>/", post_detail),
+    path("posts/add/", post_add),
 
 ]
 

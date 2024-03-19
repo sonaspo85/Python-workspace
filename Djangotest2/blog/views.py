@@ -28,3 +28,7 @@ def post_detail(request, post_id):
     }
 
     return render(request, 'post_detail.html', context)
+
+
+def post_add(request):
+    return render(request, 'post_add.html')

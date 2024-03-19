@@ -15,9 +15,13 @@
 
         <div id="post-list">
             <ul class="posts">
+                <!-- 모든 Post 객체를 반복 -->
                 {% for post in posts %}
                 <li class="post">
-                    <div class="title">{{ post.title }}</div>
+                    <div class="title">
+                        <!-- Post 제목을 링크로 만들고 클릭시, 해당 Post 페이지로 이동하기 -->
+                        <a href="/posts/{{ post.id }}/">{{ post.title }}</a>
+                    </div>
                     <p>{{ post.content }}</p>
                     <ul class="comments">
                         <!-- 역방향 관계로 Post 객체 자신과 연결된 모든 Comment 객체 반복 -->
