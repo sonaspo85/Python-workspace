@@ -31,4 +31,19 @@ def post_detail(request, post_id):
 
 
 def post_add(request):
+    if request.method == 'POST':
+        print('method POST 방식 입니다.')
+        # 사용자가 POST 방식으로 전달한 데이터 출력
+        title = request.POST['title']
+        print(f'{title=}') # title='나는 타이틀 입니다'
+
+        content = request.POST['content']
+        print(f'{content=}') # content='나는 내용 입니다.'
+
+        ukey = request.POST['csrfmiddlewaretoken']
+        print(f'{ukey=}') # ukey='OSCGc9IYS3gA5pzDZlgATksaMtUfY3vWEgyYQys609eXScqR0k9IB2ABxP2ZaPj9'
+
+    else:
+        print('method GET 방식 입니다.')
+
     return render(request, 'post_add.html')

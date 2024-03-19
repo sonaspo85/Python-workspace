@@ -9,6 +9,7 @@
             <h1>Post Add</h1>
 
             <form method="POST">
+                {% csrf_token %}
                 <div>
                     <label>제목</label>
                     <input name="title" type="text" />

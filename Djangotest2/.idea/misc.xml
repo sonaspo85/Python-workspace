@@ -3,7 +3,7 @@
   <component name="Black">
     <option name="sdkUUID" value="f7e933e2-b2f6-48ce-aa4d-8944d5d0aa15" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="djangoTest" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="DjangoTest" project-jdk-type="Python SDK" />
   <component name="PyCharmProfessionalAdvertiser">
     <option name="shown" value="true" />
   </component>
