@@ -17,6 +17,7 @@ urlpatterns = [
 
 ]
 
+# 유저가 업로드하는 정적 파일들을 이미지 링크와 연결하기
 urlpatterns += static(
     # URL의 접두어가 MEDIA_URL일때는 정적 파일을 돌려준다.
     prefix = settings.MEDIA_URL,
