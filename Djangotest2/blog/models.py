@@ -15,6 +15,7 @@ class Post(models.Model):
 class Comment(models.Model):
     # ForeignKey 필드를 사용하여 1:N 연결이 되도록 구성해준다.
     # ForeignKey 필드는 첫번째 인수인 Post 테이블 Row의 ID 값을 갖는다.
+    # 현재 본인과 연결된 Post 객체의 id 값을 반환 한다.
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     content = models.TextField('댓글 내용')
 

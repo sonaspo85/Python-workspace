@@ -5,10 +5,12 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     </head>
     <body>
-        <div>
-            <h1>Post Add</h1>
-
+        <div id="navbar">
+            <span>글작성</span>
+        </div>
+        <div id="post-add">
             <form method="POST">
+                <!-- csrf는 django의 보안 기법중 하나로 해당 영역을 사용자에게 전달시 브라우저별로 고유한 값을 포함하여 전달 한다. -->
                 {% csrf_token %}
                 <div>
                     <label>제목</label>
@@ -18,7 +20,7 @@
                     <label>내용</label>
                     <textarea name="content" cols="50" rows="10"></textarea>
                 </div>
-                <button type="submit">작성</button>
+                <button type="submit" class="btn-post-add  btn-primary">작성</button>
             </form>
         </div>
     </body>
