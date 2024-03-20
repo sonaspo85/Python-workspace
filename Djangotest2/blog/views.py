@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from blog.models import Post
 
 def post_list(request):
@@ -33,16 +33,20 @@ def post_detail(request, post_id):
 def post_add(request):
     if request.method == 'POST':
         print('method POST 방식 입니다.')
-        # 사용자가 POST 방식으로 전달한 데이터 출력
+        # 사용자가 POST 방식으로 전달한 데이터로 새로운 Post 객체 생성하기
         title = request.POST['title']
         print(f'{title=}') # title='나는 타이틀 입니다'
 
         content = request.POST['content']
         print(f'{content=}') # content='나는 내용 입니다.'
 
-        ukey = request.POST['csrfmiddlewaretoken']
-        print(f'{ukey=}') # ukey='OSCGc9IYS3gA5pzDZlgATksaMtUfY3vWEgyYQys609eXScqR0k9IB2ABxP2ZaPj9'
+        post = Post.objects.create(
+            title = title,
+            content = content
+        )
 
+        # 새로운 Post 객체 생성후, 생성된 Post객체 페이지로 이동하기
+        return redirect(f'/posts/{post.id}')
     else:
         print('method GET 방식 입니다.')
 
