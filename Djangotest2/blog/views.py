@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from blog.models import Post
+from blog.models import Post, Comment
+
 
 def post_list(request):
     # 모든 Post 객체를 가진 요소를 추출
@@ -19,13 +20,24 @@ def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
     print(f'{post=}') # post=<Post: 테스트글 2>
 
+    # 브라우저로 전달받은 POST 방식의 데이터인 경우
+    if request.method == 'POST':
+        # 전달 받은 데이터는 'key=value' 의 형태로 전달 받는다.
+        comment_content = request.POST['comment']
 
-    # Template에 데이터 전달하기, Template으로 데이터를 전달하기 위해서는 딕셔너리 객체로 전달해야 한다.
-    # 관용적으로 context 이름으로 사용한다.
+        # ojbects.create(): 객체 생성
+        Comment.objects.create(
+            post = post, # 현재 post 객체
+            content = comment_content,
+
+        )
+
+    # Template 으로 데이터를 전달 하기 위해서는 딕셔너리 객체 타입으로 전달 해야 한다.
     context = {
-        'post_id':post_id,
-        'post':post,
+        # 현재 Post 객체를 전달
+        'post': post,
     }
+
 
     return render(request, 'post_detail.html', context)
 
@@ -40,6 +52,7 @@ def post_add(request):
         content = request.POST['content']
         print(f'{content=}') # content='나는 내용 입니다.'
 
+        # objects.create() : 새로운 Post 객체 생성
         post = Post.objects.create(
             title = title,
             content = content

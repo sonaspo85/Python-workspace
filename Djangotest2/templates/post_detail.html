@@ -24,6 +24,16 @@
                 {% endfor %}
             </ul>
 
+            <form method="POST">
+                <!-- csrf는 Django의 내장 보안 기법중의 하나이다.
+                    csrf 선언시 여기 form 영역은 브라우저 별로 고유값을 가지는 영역으로 설정 된다.
+                    사용자가 브라우저에 해당 페이지의 form 영역에서 POST 데이터를 전달 할 경우
+                    서버에 저장되어 있는 고유값과 일치 할 경우 POST 요청을 수락한다.
+                 -->
+                {% csrf_token %}
+                <textarea name="comment"></textarea>
+                <button type="submit" class="btn btn-primary">댓글 작성</button>
+            </form>
 
             <p>현재 post객체의 post_id: {{ post_id }}</p>
         </div>
