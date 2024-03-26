@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    </head>
+
+    <body>
+        <div id="navbar">
+            <span>pylog</span>
+            <a href="/posts/add/" class="btn btn-primary">글작성</a>
+        </div>
+        <div id="post-list">
+            <ul class="posts">
+                {% for post in posts %}
+                <li class="post">
+                    <div>
+                        <a href="/posts/{{ post.id }}/">{{ post.title }}</a>
+                    </div>
+                    <p>{{ post.content }}</p>
+                    <ul class="comments">
+                        <!-- 자신과 연결된 모든 역방향 관계의 객체에 접근하기 위해서는 'N방향소문자화_set'의 형태로 자동 생성해주는 속성을 사용하면 된다. -->
+                        {% for comment in post.comment_set.all %}
+                            <li class="comment">{{ comment.content }}</li>
+
+                        <!-- 순회할 항목이 없는 경우 -->
+                        {% empty %}
+                            <li class="comment-empty">아직 댓글이 없습니다.</li>
+                        {% endfor %}
+                    </ul>
+
+                    <!-- 해당 Post 객체에 썸네일 이미지가 존재하는 경우 -->
+                    {% if post.thumbnail %}
+                        <img src="{{ post.thumbnail.url }}" alt="" />
+                    {% else %}
+                        <img src="" alt="" />
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>

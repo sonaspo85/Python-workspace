@@ -52,10 +52,17 @@ def post_add(request):
         content = request.POST['content']
         print(f'{content=}') # content='나는 내용 입니다.'
 
+        # 썸네일 가져오기
+        # 데이터를 가져올때는 request.POST 로 가져오지만 파일을 가져올때는 request,FILES 로 가져와야 한다.
+        print(request.FILES) # <MultiValueDict: {'thumbnail': [<TemporaryUploadedFile: RAC.jpg (image/jpeg)>]}>
+
+        thumbnail = request.FILES['thumbnail']
+
         # objects.create() : 새로운 Post 객체 생성
         post = Post.objects.create(
             title = title,
-            content = content
+            content = content,
+            thumbnail = thumbnail,
         )
 
         # 새로운 Post 객체 생성후, 생성된 Post객체 페이지로 이동하기
